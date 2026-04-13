@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AZUR | In der Stille der Nacht</title>
+    <meta name="description" content="Offizielle Landingpage von AZUR. Nasheeds, die das Herz berühren. Neue Single 'In der Stille der Nacht' am 17.04.2026.">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="https://s.pageclip.co/v1/pageclip.css" media="screen">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="video-background">
+        <video autoplay muted loop playsinline poster="Fotos/grok-image-61447875-b39f-4440-a547-60f82087db4c.png">
+            <source src="Videos/Nachdenklicher_Spaziergang_im_Dunkeln.mp4" type="video/mp4">
+        </video>
+    </div>
+    <div class="background-overlay"></div>
+    
+    <main class="container">
+        <header class="hero">
+            <div class="profile-img-container">
+                <img src="Fotos/azur_logo.png" alt="AZUR Logo" class="profile-img">
+            </div>
+            <h1 class="artist-name">AZUR</h1>
+            <p class="tagline">In der Stille der Nacht</p>
+        </header>
+
+        <section class="release-card">
+            <div class="card-content">
+                <span class="status">NEUE SINGLE</span>
+                <h2>In der Stille der Nacht</h2>
+                <p class="release-date">Release am 17.04.2026</p>
+                <a href="https://distrokid.com/hyperfollow/azur19/in-der-stille-der-nacht/" class="btn-primary" target="_blank">JETZT PRE-SAVEN</a>
+            </div>
+        </section>
+
+        <nav class="social-links">
+            <a href="https://www.tiktok.com/@azur_nasheed" class="social-btn" target="_blank">
+                <i class="fab fa-tiktok"></i>
+                <span>TikTok</span>
+            </a>
+            <a href="https://www.youtube.com/@azur.nasheed" class="social-btn" target="_blank">
+                <i class="fab fa-youtube"></i>
+                <span>YouTube</span>
+            </a>
+            <a href="#" class="social-btn" target="_blank">
+                <i class="fab fa-spotify"></i>
+                <span>Spotify</span>
+            </a>
+            <a href="https://www.instagram.com/azur.nasheed" class="social-btn" target="_blank">
+                <i class="fab fa-instagram"></i>
+                <span>Instagram</span>
+            </a>
+        </nav>
+
+        <section class="contact-section">
+            <h3 class="section-title">Schreib mir eine Nachricht</h3>
+            <form action="https://send.pageclip.co/HIER_DEIN_SCHLUESSEL" class="pageclip-form" method="post">
+                <div class="form-group">
+                    <input type="text" name="name" placeholder="Dein Name" required>
+                </div>
+                <div class="form-group">
+                    <input type="email" name="email" placeholder="Deine E-Mail" required>
+                </div>
+                <div class="form-group">
+                    <textarea name="message" placeholder="Deine Nachricht an AZUR..." required></textarea>
+                </div>
+                <button type="submit" class="pageclip-form__submit btn-primary">
+                    <span>ABSENDEN</span>
+                </button>
+            </form>
+        </section>
+
+        <footer class="footer">
+            <div class="footer-content">
+                <p class="copyright">&copy; 2026 AZUR Sounds. Official Artist Page.</p>
+                <div class="legal-links">
+                    <a href="impressum.html">Impressum</a>
+                    <span class="divider">|</span>
+                    <a href="datenschutz.html">Datenschutz</a>
+                </div>
+            </div>
+        </footer>
+    </main>
+
+    <script src="https://s.pageclip.co/v1/pageclip.js" charset="utf-8"></script>
+    <script>
+        // Kleiner Effekt fuer das Scrollen
+        document.addEventListener('DOMContentLoaded', () => {
+            const card = document.querySelector('.release-card');
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(20px)';
+            
+            setTimeout(() => {
+                card.style.transition = 'all 1s ease-out';
+                card.style.opacity = '1';
+                card.style.transform = 'translateY(0)';
+            }, 300);
+        });
+    </script>
+</body>
+</html>
