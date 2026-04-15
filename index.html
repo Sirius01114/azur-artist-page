@@ -9,7 +9,7 @@
         content="Offizielle Landingpage von AZUR. Nasheeds, die das Herz berühren. Neue Single 'In der Stille der Nacht' am 17.04.2026.">
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <link rel="stylesheet" href="https://s.pageclip.co/v1/pageclip.css" media="screen">
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600&display=swap" rel="stylesheet">
@@ -84,7 +84,7 @@
                 <a href="mailto:kontakt@azur-nasheed.me" style="color: var(--accent-color); text-decoration: none;">kontakt@azur-nasheed.me</a>
             </p>
             <h3 class="section-title" style="font-size: 0.7rem; opacity: 0.6;">Oder schreib mir direkt:</h3>
-            <form action="https://send.pageclip.co/HIER_DEIN_SCHLUESSEL" class="pageclip-form" method="post">
+            <form action="https://formspree.io/f/kontakt@azur-nasheed.me" method="POST" class="contact-form">
                 <div class="form-group">
                     <input type="text" name="name" placeholder="Dein Name" required>
                 </div>
@@ -94,7 +94,7 @@
                 <div class="form-group">
                     <textarea name="message" placeholder="Deine Nachricht an AZUR..." required></textarea>
                 </div>
-                <button type="submit" class="pageclip-form__submit btn-primary">
+                <button type="submit" class="btn-primary">
                     <span>ABSENDEN</span>
                 </button>
             </form>
@@ -113,7 +113,7 @@
         </footer>
     </main>
 
-    <script src="https://s.pageclip.co/v1/pageclip.js" charset="utf-8"></script>
+
     <script>
         // Audio Player Logik
         const audio = document.getElementById('main-audio');
