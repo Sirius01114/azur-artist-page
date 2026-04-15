@@ -155,6 +155,62 @@ h2 {
     transform: scale(1.05);
 }
 
+/* Audio Player Styles */
+.audio-player {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid var(--glass-border);
+    border-radius: 15px;
+    padding: 1rem;
+    margin-bottom: 2rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.player-controls {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.player-btn {
+    background: none;
+    border: none;
+    color: var(--text-color);
+    cursor: pointer;
+    font-size: 1.2rem;
+    transition: color 0.3s ease;
+    width: 30px;
+}
+
+.player-btn:hover {
+    color: var(--accent-color);
+}
+
+.progress-container {
+    flex: 1;
+    height: 4px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 2px;
+    position: relative;
+    overflow: hidden;
+}
+
+.progress-bar {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    background: var(--accent-color);
+    width: 0%;
+    transition: width 0.1s linear;
+}
+
+.time-display {
+    font-size: 0.8rem;
+    opacity: 0.6;
+    min-width: 35px;
+}
+
 .social-links {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -185,6 +241,96 @@ h2 {
 .social-btn:hover {
     background: rgba(255, 255, 255, 0.1);
     border-color: var(--accent-color);
+}
+
+/* Support Section */
+.support-section {
+    margin-top: 3rem;
+    animation: fadeIn 1.8s ease-out;
+}
+
+.support-card {
+    background: var(--glass-bg);
+    backdrop-filter: blur(15px);
+    border: 1px solid var(--glass-border);
+    border-radius: 20px;
+    padding: 2rem;
+    text-align: left;
+}
+
+.support-text {
+    font-size: 0.9rem;
+    opacity: 0.7;
+    margin-bottom: 1.5rem;
+    text-align: center;
+}
+
+.amount-toggles {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 1rem;
+}
+
+.amount-btn {
+    flex: 1;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid var(--glass-border);
+    color: var(--text-color);
+    padding: 0.8rem;
+    border-radius: 12px;
+    cursor: pointer;
+    font-family: var(--font-main);
+    transition: all 0.3s ease;
+}
+
+.amount-btn:hover {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.amount-btn.active {
+    background: var(--accent-color);
+    color: var(--bg-color);
+    border-color: var(--accent-color);
+    font-weight: 600;
+}
+
+.custom-amount {
+    position: relative;
+    margin-bottom: 1.5rem;
+}
+
+.custom-amount input {
+    width: 100%;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid var(--glass-border);
+    color: var(--text-color);
+    padding: 1rem;
+    padding-left: 2rem;
+    border-radius: 12px;
+    font-family: var(--font-main);
+    font-size: 1.1rem;
+}
+
+.custom-amount .currency {
+    position: absolute;
+    left: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+    opacity: 0.5;
+}
+
+#final-donate-btn {
+    width: 100%;
+    margin-top: 1rem;
+    border: none;
+    cursor: pointer;
+}
+
+.anonym-hint {
+    font-size: 0.7rem;
+    opacity: 0.4;
+    text-align: center;
+    margin-top: 1rem;
 }
 
 .contact-section {
@@ -246,22 +392,27 @@ h2 {
 .footer {
     margin-top: 5rem;
     padding-bottom: 2rem;
-    opacity: 0.4;
+    opacity: 0.5; /* Dezent, aber legal erkennbar */
     transition: opacity 0.3s ease;
+    text-align: center;
+    position: relative;
+    pointer-events: auto;
 }
 
 .footer:hover {
-    opacity: 0.8;
+    opacity: 1; /* Volle Sichtbarkeit bei Hover */
 }
 
 .copyright {
-    font-size: 0.75rem;
-    letter-spacing: 0.1rem;
+    display: block;
+    font-size: 0.7rem;
+    letter-spacing: 0.05rem;
     margin-bottom: 0.5rem;
 }
 
 .legal-links {
     font-size: 0.65rem;
+    pointer-events: auto;
 }
 
 .legal-links a {
@@ -276,7 +427,7 @@ h2 {
 
 .legal-links .divider {
     margin: 0 5px;
-    opacity: 0.3;
+    opacity: 0.4;
 }
 
 @keyframes fadeIn {

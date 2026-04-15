@@ -1,10 +1,12 @@
 <!DOCTYPE html>
 <html lang="de">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AZUR | In der Stille der Nacht</title>
-    <meta name="description" content="Offizielle Landingpage von AZUR. Nasheeds, die das Herz berühren. Neue Single 'In der Stille der Nacht' am 17.04.2026.">
+    <meta name="description"
+        content="Offizielle Landingpage von AZUR. Nasheeds, die das Herz berühren. Neue Single 'In der Stille der Nacht' am 17.04.2026.">
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="https://s.pageclip.co/v1/pageclip.css" media="screen">
@@ -12,6 +14,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600&display=swap" rel="stylesheet">
 </head>
+
 <body>
     <div class="video-background">
         <video autoplay muted loop playsinline poster="Fotos/grok-image-61447875-b39f-4440-a547-60f82087db4c.png">
@@ -19,7 +22,7 @@
         </video>
     </div>
     <div class="background-overlay"></div>
-    
+
     <main class="container">
         <header class="hero">
             <div class="profile-img-container">
@@ -34,7 +37,25 @@
                 <span class="status">NEUE SINGLE</span>
                 <h2>In der Stille der Nacht</h2>
                 <p class="release-date">Release am 17.04.2026</p>
-                <a href="https://distrokid.com/hyperfollow/azur19/in-der-stille-der-nacht/" class="btn-primary" target="_blank">JETZT PRE-SAVEN</a>
+
+                <!-- Audio Player -->
+                <div class="audio-player">
+                    <audio id="main-audio" src="Musik/kurzversion.m4a" loop></audio>
+                    <div class="player-controls">
+                        <button id="play-pause" class="player-btn">
+                            <i class="fas fa-play"></i>
+                        </button>
+                        <div class="progress-container">
+                            <div class="progress-bar" id="progress"></div>
+                        </div>
+                        <div class="time-display">
+                            <span id="current-time">0:00</span>
+                        </div>
+                    </div>
+                </div>
+
+                <a href="https://distrokid.com/hyperfollow/azur19/in-der-stille-der-nacht/" class="btn-primary"
+                    target="_blank">JETZT PRE-SAVEN</a>
             </div>
         </section>
 
@@ -89,18 +110,101 @@
 
     <script src="https://s.pageclip.co/v1/pageclip.js" charset="utf-8"></script>
     <script>
+        // Audio Player Logik
+        const audio = document.getElementById('main-audio');
+        const playBtn = document.getElementById('play-pause');
+        const progress = document.getElementById('progress');
+        const currentTimeEl = document.getElementById('current-time');
+        const bgVideo = document.querySelector('.video-background video');
+
+        // Slowmotion fuer das Hintergrundvideo
+        if (bgVideo) {
+            bgVideo.playbackRate = 0.5;
+        }
+
+        playBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            e.stopPropagation();
+            togglePlay();
+        });
+
+        function togglePlay() {
+            if (audio.paused) {
+                audio.play().catch(e => console.log("Autoplay blocked by browser. Need user interaction."));
+                playBtn.innerHTML = '<i class="fas fa-pause"></i>';
+            } else {
+                audio.pause();
+                playBtn.innerHTML = '<i class="fas fa-play"></i>';
+            }
+        }
+
+        // Sehr robuste Autoplay Logik
+        let hasAutoplayed = false;
+
+        const attemptAutoplay = () => {
+            if (hasAutoplayed) return;
+
+            // Versuche zu starten
+            let playPromise = audio.play();
+
+            if (playPromise !== undefined) {
+                playPromise.then(() => {
+                    hasAutoplayed = true;
+                    playBtn.innerHTML = '<i class="fas fa-pause"></i>';
+
+                    // Listener sicher entfernen, da es jetzt laeuft
+                    ['click', 'touchstart', 'keydown'].forEach(evt =>
+                        document.removeEventListener(evt, attemptAutoplay)
+                    );
+                }).catch(error => {
+                    // Vom Browser blockiert. Passiert nichts, wir warten auf den naechsten Klick.
+                });
+            }
+        };
+
+        // Versuch 1: Sofort beim Aufruf
+        attemptAutoplay();
+
+        // Versuch 2: Falls blockiert, warten wir auf eine ECHTE User-Aktion (Klick, Touch, Taste)
+        ['click', 'touchstart', 'keydown'].forEach(evt =>
+            document.addEventListener(evt, attemptAutoplay)
+        );
+
+        // Verhindern, dass Klicks auf den Fortschrittsbalken andere Links triggern
+        document.querySelector('.audio-player').addEventListener('click', (e) => {
+            e.stopPropagation();
+        });
+
+        audio.addEventListener('timeupdate', () => {
+            const percent = (audio.currentTime / audio.duration) * 100;
+            progress.style.width = percent + '%';
+
+            let mins = Math.floor(audio.currentTime / 60);
+            let secs = Math.floor(audio.currentTime % 60);
+            if (secs < 10) secs = '0' + secs;
+            currentTimeEl.textContent = mins + ':' + secs;
+        });
+
+        audio.addEventListener('ended', () => {
+            playBtn.innerHTML = '<i class="fas fa-play"></i>';
+            progress.style.width = '0%';
+            currentTimeEl.textContent = '0:00';
+        });
+
         // Kleiner Effekt fuer das Scrollen
         document.addEventListener('DOMContentLoaded', () => {
             const card = document.querySelector('.release-card');
-            card.style.opacity = '0';
-            card.style.transform = 'translateY(20px)';
-            
-            setTimeout(() => {
-                card.style.transition = 'all 1s ease-out';
-                card.style.opacity = '1';
-                card.style.transform = 'translateY(0)';
-            }, 300);
+            if (card) {
+                card.style.opacity = '0';
+                card.style.transform = 'translateY(20px)';
+                setTimeout(() => {
+                    card.style.transition = 'all 1s ease-out';
+                    card.style.opacity = '1';
+                    card.style.transform = 'translateY(0)';
+                }, 300);
+            }
         });
     </script>
 </body>
+
 </html>
