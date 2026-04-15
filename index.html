@@ -122,9 +122,9 @@
         const currentTimeEl = document.getElementById('current-time');
         const bgVideo = document.querySelector('.video-background video');
 
-        // Slowmotion fuer das Hintergrundvideo
+        // Video spielt in Originalgeschwindigkeit für maximale Framerate
         if (bgVideo) {
-            bgVideo.playbackRate = 0.5;
+            bgVideo.playbackRate = 1.0;
         }
 
         playBtn.addEventListener('click', (e) => {
