@@ -238,6 +238,27 @@ h2 {
     font-size: 1.1rem;
 }
 
+/* Brand Colors für die Icons */
+.social-btn .fa-tiktok {
+    color: #ffffff;
+    text-shadow: -1.5px -1.5px 0 #00f2fe, 1.5px 1.5px 0 #fe2c55;
+}
+
+.social-btn .fa-youtube {
+    color: #FF0000;
+}
+
+.social-btn .fa-spotify {
+    color: #1ED760;
+}
+
+.social-btn .fa-instagram {
+    background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    display: inline-block;
+}
+
 .social-btn:hover {
     background: rgba(255, 255, 255, 0.1);
     border-color: var(--accent-color);
