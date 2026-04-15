@@ -221,17 +221,33 @@ h2 {
     background: var(--glass-bg);
     backdrop-filter: blur(5px);
     border: 1px solid var(--glass-border);
-    padding: 0.8rem;
+    padding: 0.7rem 1.2rem;
     border-radius: 12px;
     text-decoration: none;
     color: var(--text-color);
-    font-size: 0.9rem;
-    font-weight: 400;
     transition: all 0.2s ease;
     display: flex;
     align-items: center;
-    justify-content: center;
-    gap: 10px;
+    justify-content: flex-start;
+    gap: 12px;
+}
+
+.social-info {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    line-height: 1.2;
+}
+
+.social-info .platform {
+    font-size: 0.9rem;
+    font-weight: 600;
+}
+
+.social-info .handle {
+    font-size: 0.65rem;
+    opacity: 0.6;
+    letter-spacing: 0.5px;
 }
 
 .social-btn i {
