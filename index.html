@@ -17,9 +17,7 @@
 
 <body>
     <div class="video-background">
-        <video autoplay muted loop playsinline>
-            <source src="Videos/Nachdenklicher_Spaziergang_im_Dunkeln.mp4" type="video/mp4">
-        </video>
+        <!-- Background Image handled via style.css -->
     </div>
     <div class="background-overlay"></div>
 
@@ -154,12 +152,6 @@
         const playBtn = document.getElementById('play-pause');
         const progress = document.getElementById('progress');
         const currentTimeEl = document.getElementById('current-time');
-        const bgVideo = document.querySelector('.video-background video');
-
-        // Video spielt in Originalgeschwindigkeit für maximale Framerate
-        if (bgVideo) {
-            bgVideo.playbackRate = 1.0;
-        }
 
         playBtn.addEventListener('click', (e) => {
             e.preventDefault();
