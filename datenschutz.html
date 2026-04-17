@@ -9,27 +9,94 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600&display=swap" rel="stylesheet">
     <style>
-        .container { max-width: 600px; text-align: left; background: var(--glass-bg); padding: 3rem; border-radius: 20px; backdrop-filter: blur(15px); border: 1px solid var(--glass-border); margin: 50px auto; }
-        h1 { margin-bottom: 2rem; color: var(--accent-color); font-size: 1.5rem; letter-spacing: 0.2rem; }
-        h2 { margin-top: 2rem; margin-bottom: 1rem; font-size: 1.1rem; color: var(--accent-color); }
-        p { margin-bottom: 1rem; line-height: 1.6; font-size: 0.9rem; opacity: 0.9; }
-        .back-link { display: inline-block; margin-top: 2rem; color: var(--accent-color); text-decoration: none; font-size: 0.8rem; }
+        body { min-height: 100vh; display: flex; align-items: center; justify-content: center; margin: 0; padding: 20px; }
+        .container { 
+            max-width: 600px; 
+            width: 100%;
+            text-align: left; 
+            background: var(--glass-bg); 
+            padding: 3rem; 
+            border-radius: 24px; 
+            backdrop-filter: blur(20px); 
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid var(--glass-border); 
+            box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+            animation: fadeIn 1s ease-out;
+            position: relative;
+            z-index: 10;
+        }
+        h1 { margin-bottom: 2rem; color: var(--accent-color); font-size: 1.5rem; letter-spacing: 0.3rem; text-transform: uppercase; font-weight: 600; }
+        h2 { margin-top: 2rem; margin-bottom: 1rem; font-size: 1.1rem; color: var(--accent-color); letter-spacing: 0.1rem; }
+        p { margin-bottom: 1.5rem; line-height: 1.8; font-size: 0.95rem; opacity: 0.9; }
+        .back-link { 
+            display: inline-flex; 
+            align-items: center;
+            margin-top: 2rem; 
+            color: var(--text-color); 
+            text-decoration: none; 
+            font-size: 0.85rem; 
+            opacity: 0.6;
+            transition: all 0.3s ease;
+        }
+        .back-link:hover { opacity: 1; color: var(--accent-color); transform: translateX(-5px); }
+        
+        .video-background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -2;
+            overflow: hidden;
+        }
+        .video-background video {
+            min-width: 100%;
+            min-height: 100%;
+            object-fit: cover;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            opacity: 0.4;
+        }
+        .background-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            background: radial-gradient(circle at center, rgba(5, 7, 10, 0.4) 0%, rgba(5, 7, 10, 0.8) 100%);
+        }
     </style>
 </head>
 <body>
-    <div class="background-overlay" style="background: var(--bg-color);"></div>
-    <div class="container" style="animation: fadeIn 1s ease-out;">
+    <div class="video-background">
+        <video autoplay muted loop playsinline>
+            <source src="Videos/Nachdenklicher_Spaziergang_im_Dunkeln.mp4" type="video/mp4">
+        </video>
+    </div>
+    <div class="background-overlay"></div>
+    <div class="container">
         <h1>Datenschutzerklärung</h1>
         <p>Wir freuen uns über Ihr Interesse an unserer Webseite. Der Schutz Ihrer Privatsphäre ist für uns sehr wichtig.</p>
 
-        <h2>1. Datenerfassung auf dieser Webseite</h2>
+        <h2>1. Verantwortlicher im Sinne der Datenschutzgesetze</h2>
+        <p><strong>AZUR Sounds</strong><br>
+        Management & Ansprechpartner: Mostafa Masoudi<br>
+        c/o POSTFLEX PFX-253-942<br>
+        Emsdettener Straße 10<br>
+        48268 Greven<br>
+        E-Mail: kontakt@azur-nasheed.me</p>
+
+        <h2>2. Datenerfassung auf dieser Webseite</h2>
         <p>Die Datenverarbeitung auf dieser Webseite erfolgt durch den Webseitenbetreiber (siehe Impressum). Ihre Daten werden zum einen dadurch erhoben, dass Sie uns diese mitteilen. Hierbei kann es sich z. B. um Daten handeln, die Sie in ein Kontaktformular eingeben.</p>
 
-        <h2>2. Kontaktformular</h2>
+        <h2>3. Kontaktformular</h2>
         <p>Wenn Sie uns per Kontaktformular Anfragen zukommen lassen, werden Ihre Angaben aus dem Anfrageformular inklusive der von Ihnen dort angegebenen Kontaktdaten zwecks Bearbeitung der Anfrage und für den Fall von Anschlussfragen bei uns gespeichert. Diese Daten geben wir nicht ohne Ihre Einwilligung weiter.</p>
-        <p>Wir nutzen hierfür den Dienst <strong>Pageclip</strong>. Die Daten werden verschlüsselt an Pageclip übertragen und dort für uns bereitgehalten.</p>
+        <p>Wir nutzen hierfür den Dienst <strong>Formspree</strong>. Die Daten werden verschlüsselt an Formspree übertragen und dort für uns bereitgehalten.</p>
 
-        <h2>3. Ihre Rechte</h2>
+        <h2>4. Ihre Rechte</h2>
         <p>Sie haben jederzeit das Recht, unentgeltlich Auskunft über Herkunft, Empfänger und Zweck Ihrer gespeicherten personenbezogenen Daten zu erhalten. Sie haben außerdem ein Recht, die Berichtigung oder Löschung dieser Daten zu verlangen.</p>
 
         <a href="index.html" class="back-link">← Zurück zur Hauptseite</a>

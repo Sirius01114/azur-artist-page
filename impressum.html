@@ -9,19 +9,80 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600&display=swap" rel="stylesheet">
     <style>
-        .container { max-width: 600px; text-align: left; background: var(--glass-bg); padding: 3rem; border-radius: 20px; backdrop-filter: blur(15px); border: 1px solid var(--glass-border); margin: 50px auto; }
-        h1 { margin-bottom: 2rem; color: var(--accent-color); font-size: 1.5rem; letter-spacing: 0.2rem; }
-        p { margin-bottom: 1rem; line-height: 1.6; font-size: 0.9rem; opacity: 0.9; }
-        .back-link { display: inline-block; margin-top: 2rem; color: var(--accent-color); text-decoration: none; font-size: 0.8rem; }
+        body { min-height: 100vh; display: flex; align-items: center; justify-content: center; margin: 0; padding: 20px; }
+        .container { 
+            max-width: 600px; 
+            width: 100%;
+            text-align: left; 
+            background: var(--glass-bg); 
+            padding: 3rem; 
+            border-radius: 24px; 
+            backdrop-filter: blur(20px); 
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid var(--glass-border); 
+            box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+            animation: fadeIn 1s ease-out;
+            position: relative;
+            z-index: 10;
+        }
+        h1 { margin-bottom: 2rem; color: var(--accent-color); font-size: 1.5rem; letter-spacing: 0.3rem; text-transform: uppercase; font-weight: 600; }
+        p { margin-bottom: 1.5rem; line-height: 1.8; font-size: 0.95rem; opacity: 0.9; }
+        .back-link { 
+            display: inline-flex; 
+            align-items: center;
+            margin-top: 2rem; 
+            color: var(--text-color); 
+            text-decoration: none; 
+            font-size: 0.85rem; 
+            opacity: 0.6;
+            transition: all 0.3s ease;
+        }
+        .back-link:hover { opacity: 1; color: var(--accent-color); transform: translateX(-5px); }
+        
+        .video-background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -2;
+            overflow: hidden;
+        }
+        .video-background video {
+            min-width: 100%;
+            min-height: 100%;
+            object-fit: cover;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            opacity: 0.4;
+        }
+        .background-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            background: radial-gradient(circle at center, rgba(5, 7, 10, 0.4) 0%, rgba(5, 7, 10, 0.8) 100%);
+        }
     </style>
 </head>
 <body>
-    <div class="background-overlay" style="background: var(--bg-color);"></div>
-    <div class="container" style="animation: fadeIn 1s ease-out;">
+    <div class="video-background">
+        <video autoplay muted loop playsinline>
+            <source src="Videos/Nachdenklicher_Spaziergang_im_Dunkeln.mp4" type="video/mp4">
+        </video>
+    </div>
+    <div class="background-overlay"></div>
+    <div class="container">
         <h1>Impressum</h1>
-        <p><strong>AZUR</strong></p>
-        
-        <p><em style="opacity: 0.7; font-size: 0.9em;">(Die offiziellen Adress- und Registerdaten befinden sich aufgrund eines Dienstleister-Wechsels momentan in der behördlichen Prüfung und werden in Kürze hier vollständig aktualisiert.)</em></p>
+        <p><strong>AZUR Sounds</strong><br>
+        Management & Ansprechpartner: Mostafa Masoudi<br>
+        c/o POSTFLEX PFX-253-942<br>
+        Emsdettener Straße 10<br>
+        48268 Greven</p>
 
         <p>Kontakt für Anfragen:<br>
         E-Mail: kontakt@azur-nasheed.me</p>

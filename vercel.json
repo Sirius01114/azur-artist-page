@@ -1,6 +1,13 @@
 {
   "cleanUrls": true,
   "trailingSlash": false,
+  "redirects": [
+    { "source": "/stream", "destination": "https://open.spotify.com/intl-de/album/45JjxLCIpB1bh65aY4zXfo", "permanent": false },
+    { "source": "/tiktok", "destination": "https://www.tiktok.com/@azur_nasheed", "permanent": false },
+    { "source": "/insta", "destination": "https://www.instagram.com/azur.nasheed/", "permanent": false },
+    { "source": "/youtube", "destination": "https://www.youtube.com/@azur.nasheed", "permanent": false },
+    { "source": "/abo", "destination": "https://www.youtube.com/@azur.nasheed?sub_confirmation=1", "permanent": false }
+  ],
   "headers": [
     {
       "source": "/(Fotos|Videos|Musik)/(.*)",
