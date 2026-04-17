@@ -428,6 +428,35 @@ h2 {
     width: 100%;
 }
 
+.video-featured {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.video-card.featured {
+    width: 100%;
+}
+
+.vocal-info {
+    margin-top: 1.5rem;
+    font-size: 0.85rem;
+    opacity: 0.7;
+    letter-spacing: 0.05rem;
+}
+
+.vocal-info a {
+    color: var(--accent-color);
+    text-decoration: none;
+    font-weight: 600;
+    margin-left: 5px;
+    border-bottom: 1px solid transparent;
+    transition: all 0.3s ease;
+}
+
+.vocal-info a:hover {
+    border-bottom-color: var(--accent-color);
+}
+
 .video-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
