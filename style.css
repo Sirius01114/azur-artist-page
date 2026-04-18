@@ -573,24 +573,33 @@ h2 {
     bottom: 100%;
     left: 50%;
     transform: translateX(-50%) translateY(0);
-    background: rgba(255, 255, 255, 0.15); /* Deutlich transparenter */
-    backdrop-filter: blur(20px); /* Stärkerer Blur-Effekt */
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
-    border: 1px solid rgba(255, 255, 255, 0.2); /* Hellerer, feinerer Rand */
+    border: 1px solid rgba(255, 255, 255, 0.2);
     border-radius: 12px;
     padding: 1.2rem;
     min-width: 180px;
     box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
-    display: none;
+    display: flex;
     flex-direction: column;
     gap: 1rem;
     z-index: 1000;
     text-align: left;
+    
+    /* Hover logic */
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.policy-menu.active {
-    display: flex;
-    animation: menuFadeIn 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+.policy-container:hover .policy-menu,
+.policy-menu:hover {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    transform: translateX(-50%) translateY(-10px);
 }
 
 @keyframes menuFadeIn {
