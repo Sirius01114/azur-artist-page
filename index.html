@@ -171,38 +171,6 @@
             }
         }
 
-        // Sehr robuste Autoplay Logik
-        let hasAutoplayed = false;
-
-        const attemptAutoplay = () => {
-            if (hasAutoplayed) return;
-
-            // Versuche zu starten
-            let playPromise = audio.play();
-
-            if (playPromise !== undefined) {
-                playPromise.then(() => {
-                    hasAutoplayed = true;
-                    playBtn.innerHTML = '<i class="fas fa-pause"></i>';
-
-                    // Listener sicher entfernen, da es jetzt laeuft
-                    ['click', 'touchstart', 'keydown'].forEach(evt =>
-                        document.removeEventListener(evt, attemptAutoplay)
-                    );
-                }).catch(error => {
-                    // Vom Browser blockiert. Passiert nichts, wir warten auf den naechsten Klick.
-                });
-            }
-        };
-
-        // Versuch 1: Sofort beim Aufruf
-        attemptAutoplay();
-
-        // Versuch 2: Falls blockiert, warten wir auf eine ECHTE User-Aktion (Klick, Touch, Taste)
-        ['click', 'touchstart', 'keydown'].forEach(evt =>
-            document.addEventListener(evt, attemptAutoplay)
-        );
-
         // Verhindern, dass Klicks auf den Fortschrittsbalken andere Links triggern
         document.querySelector('.audio-player').addEventListener('click', (e) => {
             e.stopPropagation();
