@@ -628,6 +628,94 @@ h2 {
     to { opacity: 1; transform: translateY(0); }
 }
 
+/* Streaming Platforms Section */
+.streaming-section {
+    padding: 6rem 1rem;
+    margin-top: 2rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    background: rgba(0, 0, 0, 0.2);
+    width: 100%;
+    text-align: center;
+}
+
+.streaming-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 3rem;
+    font-weight: 300;
+    margin-bottom: 4rem;
+    letter-spacing: 0.1rem;
+    opacity: 0.9;
+}
+
+.streaming-logos {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 3.5rem;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.platform-link {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.8rem;
+    color: var(--text-color);
+    text-decoration: none;
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    opacity: 0.4;
+    min-width: 100px;
+}
+
+.platform-link i, 
+.platform-link svg {
+    font-size: 2.2rem;
+    height: 2.2rem;
+    width: auto;
+}
+
+.platform-link span {
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.15rem;
+    font-weight: 400;
+}
+
+.platform-link:hover {
+    opacity: 1;
+    transform: translateY(-8px);
+    color: var(--accent-color);
+}
+
+.custom-svg {
+    width: 2.2rem;
+    height: 2.2rem;
+}
+
+/* Mobile Adjustments for Streaming Section */
+@media (max-width: 768px) {
+    .streaming-title {
+        font-size: 2rem;
+        margin-bottom: 3rem;
+    }
+    
+    .streaming-logos {
+        gap: 2rem;
+    }
+
+    .platform-link {
+        min-width: 80px;
+        opacity: 0.6; /* Slightly higher on mobile for visibility */
+    }
+
+    .platform-link i, 
+    .platform-link svg {
+        font-size: 1.8rem;
+    }
+}
+
 /* Mobile Quick Fix */
 @media (max-width: 400px) {
     .artist-name {
