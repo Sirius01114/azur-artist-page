@@ -111,13 +111,15 @@ body {
 }
 
 .cover-art-container {
-    width: 280px;
-    height: 280px;
+    width: 100%;
+    max-width: 320px;
+    aspect-ratio: 1 / 1;
     margin: 0 auto 2rem;
-    border-radius: 15px;
+    border-radius: 12px;
     overflow: hidden;
-    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
-    border: 1px solid var(--glass-border);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.6);
+    border: 1px solid rgba(225, 225, 225, 0.1);
+    background: #000;
 }
 
 .release-cover {
@@ -125,6 +127,7 @@ body {
     height: 100%;
     object-fit: cover;
     display: block;
+    image-rendering: high-quality;
 }
 
 .status {
