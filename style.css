@@ -110,6 +110,23 @@ body {
     transform: translateY(-5px);
 }
 
+.cover-art-container {
+    width: 280px;
+    height: 280px;
+    margin: 0 auto 2rem;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
+    border: 1px solid var(--glass-border);
+}
+
+.release-cover {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
 .status {
     font-size: 0.7rem;
     font-weight: 600;
