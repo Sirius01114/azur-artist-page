@@ -137,14 +137,14 @@
 
         <footer class="footer">
             <div class="footer-content">
-                <p class="copyright">&copy; 2026 AZUR Sounds. Official Artist Page.</p>
-                <p style="font-size: 0.6rem; opacity: 0.4; margin-bottom: 0.5rem;">kontakt@azur-nasheed.me</p>
-                <div class="policy-container">
-                    <button class="policy-trigger" id="policyTrigger">Geschäftsbedingungen und Richtlinien</button>
-                    <div class="policy-menu" id="policyMenu">
-                        <a href="impressum.html">Impressum</a>
-                        <a href="datenschutz.html">Datenschutzerklärung</a>
-                    </div>
+                <div class="legal-links">
+                    <span>&copy; 2026 AZUR Sounds</span>
+                    <span class="divider">|</span>
+                    <a href="datenschutz.html">Datenschutzerklärung</a>
+                    <span class="divider">|</span>
+                    <a href="impressum.html">Impressum</a>
+                    <span class="divider">|</span>
+                    <span>Official Artist Page</span>
                 </div>
             </div>
         </footer>
@@ -195,21 +195,7 @@
             currentTimeEl.textContent = '0:00';
         });
 
-        // Policy Menu (Mobile Toggle)
-        const policyTrigger = document.getElementById('policyTrigger');
-        const policyMenu = document.getElementById('policyMenu');
 
-        // Auf mobilen Geraeten erlaubt ein Klick das Oeffnen/Schliessen
-        policyTrigger.addEventListener('click', (e) => {
-            if (window.innerWidth < 1024) {
-                e.stopPropagation();
-                const isVisible = window.getComputedStyle(policyMenu).visibility === 'visible';
-                policyMenu.style.visibility = isVisible ? 'hidden' : 'visible';
-                policyMenu.style.opacity = isVisible ? '0' : '1';
-                policyMenu.style.pointerEvents = isVisible ? 'none' : 'auto';
-                policyMenu.style.transform = isVisible ? 'translateX(-50%) translateY(0)' : 'translateX(-50%) translateY(-10px)';
-            }
-        });
 
         // Kleiner Effekt fuer das Scrollen
         document.addEventListener('DOMContentLoaded', () => {
