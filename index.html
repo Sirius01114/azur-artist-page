@@ -4,9 +4,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AZUR | Sand am Meer</title>
+    <title>AZUR NASHEED | Sand am Meer</title>
     <meta name="description"
-        content="Offizielle Landingpage von AZUR. Nasheeds, die das Herz berühren. Neue Single 'Sand am Meer' jetzt überall hörbar.">
+        content="Offizielle Landingpage von AZUR NASHEED. Nasheeds, die das Herz berühren. Neue Single 'Sand am Meer' jetzt überall hörbar.">
+    <link rel="icon" type="image/png" href="favicon.png">
     <link rel="stylesheet" href="style.css?v=20">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 
@@ -24,9 +25,12 @@
     <main class="container">
         <header class="hero">
             <div class="profile-img-container">
-                <img src="Fotos/azur_logo.png" alt="AZUR Logo" class="profile-img">
+                <img src="Fotos/azur_logo.png" alt="AZUR NASHEED Logo" class="profile-img">
             </div>
-            <h1 class="artist-name">AZUR</h1>
+            <h1 class="artist-name">
+                <span class="name-main">AZUR</span>
+                <span class="name-sub">NASHEED</span>
+            </h1>
         </header>
 
         <section class="release-card">
@@ -51,7 +55,7 @@
                             <div class="video-wrapper">
                                 <iframe 
                                     src="https://www.youtube.com/embed/vI3nQcwvJvw?autoplay=1&playsinline=1" 
-                                    title="AZUR - Sand am Meer (Official Video)" 
+                                    title="AZUR NASHEED - Sand am Meer (Official Video)" 
                                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
                                     referrerpolicy="strict-origin-when-cross-origin"
                                     allowfullscreen>
@@ -68,37 +72,34 @@
             </div>
         </section>
 
-        <nav class="social-links">
-            <a href="https://www.tiktok.com/@azur_nasheed" class="social-btn" target="_blank">
+        <div class="social-brand-bar">
+            <!-- AZUR ESSENTIALS SHOP - Scrolls to dedicated experience -->
+            <a href="#shop-experience" class="social-symbol shop-highlight">
+                <i class="fas fa-shopping-bag"></i>
+                <span>AZUR ESSENTIALS</span>
+            </a>
+            
+            <a href="https://www.tiktok.com/@azur.nasheed" class="social-symbol" target="_blank">
                 <i class="fab fa-tiktok"></i>
-                <div class="social-info">
-                    <span class="platform">TikTok</span>
-                    <span class="handle">@azur_nasheed</span>
-                </div>
+                <span>TikTok</span>
             </a>
-            <a href="https://www.youtube.com/@azur.nasheed" class="social-btn" target="_blank">
+            <a href="https://www.youtube.com/@azur.nasheed" class="social-symbol" target="_blank">
                 <i class="fab fa-youtube"></i>
-                <div class="social-info">
-                    <span class="platform">YouTube</span>
-                    <span class="handle">@azur.nasheed</span>
-                </div>
+                <span>YouTube</span>
             </a>
-
-            <a href="https://www.instagram.com/azur.nasheed" class="social-btn" target="_blank">
+            <a href="https://www.instagram.com/azur.nasheed" class="social-symbol" target="_blank">
                 <i class="fab fa-instagram"></i>
-                <div class="social-info">
-                    <span class="platform">Instagram</span>
-                    <span class="handle">@azur.nasheed</span>
-                </div>
+                <span>Instagram</span>
             </a>
-            <a href="https://open.spotify.com/intl-de/artist/56pBAUNSrP1y15tXZYUs72" class="social-btn" target="_blank">
+            <a href="https://open.spotify.com/intl-de/artist/56pBAUNSrP1y15tXZYUs72" class="social-symbol" target="_blank">
                 <i class="fab fa-spotify"></i>
-                <div class="social-info">
-                    <span class="platform">Spotify</span>
-                    <span class="handle">AZUR</span>
-                </div>
+                <span>Spotify</span>
             </a>
-        </nav>
+            <a href="https://music.apple.com/us/artist/azur/1892303733" class="social-symbol" target="_blank">
+                <i class="fab fa-apple"></i>
+                <span>Apple Music</span>
+            </a>
+        </div>
 
         <section class="contact-section">
             <h3 class="section-title">Kontakt</h3>
@@ -114,7 +115,7 @@
                     <input type="email" name="email" placeholder="Deine E-Mail" required>
                 </div>
                 <div class="form-group">
-                    <textarea name="message" placeholder="Deine Nachricht an AZUR..." required></textarea>
+                    <textarea name="message" placeholder="Deine Nachricht an AZUR NASHEED..." required></textarea>
                 </div>
                 <button type="submit" class="btn-primary">
                     <span>ABSENDEN</span>
@@ -122,42 +123,27 @@
             </form>
         </section>
 
-        <!-- Streaming Platforms Strip -->
-        <section class="streaming-section">
-            <h2 class="streaming-title">AZUR streamen</h2>
-            <div class="streaming-logos">
-                <a href="https://www.youtube.com/@azur.nasheed" class="platform-link" title="YouTube Music" target="_blank">
-                    <i class="fab fa-youtube"></i>
-                    <span>YouTube Music</span>
-                </a>
-
-                <a href="https://open.spotify.com/intl-de/artist/56pBAUNSrP1y15tXZYUs72" class="platform-link" title="Spotify" target="_blank">
-                    <i class="fab fa-spotify"></i>
-                    <span>Spotify</span>
-                </a>
-                <a href="https://music.apple.com/us/artist/azur/1892303733" class="platform-link" title="Apple Music" target="_blank">
-                    <i class="fab fa-apple"></i>
-                    <span>Apple Music</span>
-                </a>
-            </div>
+        <!-- AZUR ESSENTIAL SHOP EXPERIENCE (DEAKTIVIERT FÜR DEPLOYMENT) 
+        <section id="shop-experience" class="shop-experience">
+            ... Shop-Code bleibt für später erhalten ...
         </section>
+        -->
 
-        <footer class="footer">
-            <div class="footer-content">
-                <div class="legal-links">
-                    <span>&copy; 2026 AZUR Sounds</span>
-                    <span class="divider">|</span>
-                    <a href="datenschutz.html">Datenschutzerklärung</a>
-                    <span class="divider">|</span>
-                    <a href="impressum.html">Impressum</a>
-                    <span class="divider">|</span>
-                    <span>Official Artist Page</span>
-                </div>
+    </main> <!-- Ursprüngliche Container-Struktur wiederhergestellt -->
+
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="legal-links">
+                <span>&copy; 2026 AZUR NASHEED | AZUR ESSENTIALS</span>
+                <span class="divider">|</span>
+                <a href="datenschutz.html">Datenschutzerklärung</a>
+                <span class="divider">|</span>
+                <a href="impressum.html">Impressum</a>
+                <span class="divider">|</span>
+                <span>Official Artist Page</span>
             </div>
-        </footer>
-    </main>
-
-
+        </div>
+    </footer>
     <script>
         // Klickschutz fuer Video-Card
         document.addEventListener('DOMContentLoaded', () => {
@@ -168,14 +154,14 @@
                 });
             }
 
-            const card = document.querySelector('.release-card');
-            if (card) {
-                card.style.opacity = '0';
-                card.style.transform = 'translateY(20px)';
+            const releaseCard = document.querySelector('.release-card');
+            if (releaseCard) {
+                releaseCard.style.opacity = '0';
+                releaseCard.style.transform = 'translateY(20px)';
                 setTimeout(() => {
-                    card.style.transition = 'all 1s ease-out';
-                    card.style.opacity = '1';
-                    card.style.transform = 'translateY(0)';
+                    releaseCard.style.transition = 'all 1s ease-out';
+                    releaseCard.style.opacity = '1';
+                    releaseCard.style.transform = 'translateY(0)';
                 }, 300);
             }
         });
