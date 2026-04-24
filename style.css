@@ -27,23 +27,11 @@ body {
     position: relative;
 }
 
-.video-background {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: -2;
-    overflow: hidden;
-    background-image: url('Videomaterial/sterne4k.png');
-    background-size: cover;
-    background-position: top center;
-    background-repeat: no-repeat;
-}
+/* .video-background removed for performance - handled in HTML */
 
 
 .background-overlay {
-    position: absolute;
+    position: fixed;
     top: 0;
     left: 0;
     width: 100%;
@@ -76,6 +64,17 @@ body {
     text-align: center;
     z-index: 10;
 }
+
+.swipe-arrow {
+    position: absolute; top: 50%; transform: translateY(-50%);
+    font-size: 1.2rem; color: #fff; cursor: pointer;
+    z-index: 10; user-select: none; transition: background 0.3s, transform 0.3s;
+    background: rgba(0, 0, 0, 0.4); border-radius: 50%;
+    width: 35px; height: 35px; display: flex; align-items: center; justify-content: center;
+}
+.swipe-arrow:hover { background: rgba(0, 0, 0, 0.8); transform: translateY(-50%) scale(1.1); }
+.swipe-arrow.left { left: 10px; }
+.swipe-arrow.right { right: 10px; }
 
 .hero {
     margin-bottom: 3rem;
@@ -366,6 +365,75 @@ h2 {
 .social-symbol:hover {
     opacity: 1;
     transform: translateY(-8px);
+}
+
+.social-s.buy-btn:hover {
+    transform: scale(1.05);
+    background: #0088ff;
+    color: white;
+}
+
+/* SIZE SELECTOR */
+.size-selector {
+    display: flex;
+    gap: 0.8rem;
+    margin: 0.5rem 0 1.2rem;
+    justify-content: center;
+}
+
+.size-btn {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: white;
+    width: 45px;
+    height: 45px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-size: 0.8rem;
+    font-weight: 600;
+    transition: all 0.3s;
+}
+
+.size-btn:hover {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: rgba(255, 255, 255, 0.3);
+}
+
+.size-btn.active {
+    background: white;
+    color: black;
+    border-color: white;
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
+}
+
+/* CHECKOUT OVERLAY (Test Mode) */
+#checkout-overlay {
+    position: fixed;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(0, 0, 0, 0.95);
+    z-index: 10000;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.loader {
+    width: 50px;
+    height: 50px;
+    border: 3px solid rgba(255, 255, 255, 0.1);
+    border-top: 3px solid #0088ff;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    margin-bottom: 2rem;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
 }
 
 .social-symbol:hover i {
@@ -715,13 +783,30 @@ html {
 }
 
 .shop-section-title {
-    font-size: clamp(3.5rem, 12vw, 8rem);
-    font-weight: 900;
-    letter-spacing: -0.04em;
-    text-transform: uppercase;
-    margin: 0 0 2.5rem 0;
-    line-height: 0.8;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0 0 3rem 0;
+    line-height: 1;
     text-align: center;
+}
+
+.shop-title-main {
+    font-size: clamp(4rem, 15vw, 10rem);
+    font-weight: 600;
+    letter-spacing: 0.8rem;
+    color: #fff;
+    text-transform: uppercase;
+}
+
+.shop-title-sub {
+    font-size: clamp(1rem, 3vw, 1.5rem);
+    font-weight: 300;
+    letter-spacing: 1.5rem;
+    color: var(--accent-color);
+    text-transform: uppercase;
+    margin-top: 1rem;
+    padding-left: 1.5rem; /* Zentrierungsausgleich für Sperrung */
 }
 
 .shop-section-nav {

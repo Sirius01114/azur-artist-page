@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AZUR | Zwischen Dunkelheit und Licht</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        .album-detail-container {
+            max-width: 1200px;
+            margin: 2rem auto 8rem;
+            padding: 0 2rem;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: start;
+        }
+
+        .album-images {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .main-cover {
+            width: 100%;
+            border-radius: 5px;
+            border: 1px solid rgba(255, 255, 255, 0.15); /* Subtile weiße Outline */
+            box-shadow: 0 0 40px rgba(255, 255, 255, 0.05), 0 20px 50px rgba(0,0,0,0.8); /* Leichter weißer Glow am Rand + tiefer Schatten */
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .main-cover:hover {
+            transform: scale(1.02) translateY(-5px);
+            box-shadow: 0 0 50px rgba(255, 255, 255, 0.1), 0 30px 60px rgba(0,0,0,0.9);
+            border: 1px solid rgba(255, 255, 255, 0.25);
+        }
+
+        .album-info {
+            color: white;
+            padding-top: 1rem;
+        }
+
+        .album-title {
+            font-size: 2.5rem;
+            font-weight: 300;
+            letter-spacing: 2px;
+            margin-bottom: 1.5rem;
+        }
+
+        .album-description {
+            font-size: 0.95rem;
+            line-height: 1.6;
+            opacity: 0.7;
+            margin-bottom: 2rem;
+        }
+
+        .tracklist {
+            list-style: none;
+            padding: 0;
+            margin-bottom: 2.5rem;
+            font-size: 0.9rem;
+            letter-spacing: 1px;
+            opacity: 0.8;
+            line-height: 1.8;
+        }
+
+        .tracklist li {
+            position: relative;
+            padding-left: 2rem;
+            margin-bottom: 0.3rem;
+        }
+
+        .tracklist li span {
+            position: absolute;
+            left: 0;
+            opacity: 0.5;
+            font-size: 0.8rem;
+            top: 2px;
+        }
+
+        .album-price {
+            font-size: 2.5rem;
+            font-weight: 300;
+            margin-bottom: 0.5rem;
+        }
+
+        .tax-info {
+            font-size: 0.8rem;
+            opacity: 0.4;
+            margin-bottom: 2rem;
+            display: block;
+        }
+
+        .buy-action-btn {
+            background: #FFA41C; /* Amazon Buy Now Orange */
+            color: #0F1111; /* Amazon Black/Grey */
+            border: 1px solid #FF8F00;
+            padding: 1.2rem 3rem;
+            border-radius: 100px; /* Typische Amazon "Jetzt Kaufen" Pille */
+            font-size: 1.1rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+            cursor: pointer;
+            width: 100%;
+            transition: all 0.2s ease;
+            text-transform: uppercase;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        }
+
+        .buy-action-btn:hover {
+            background: #FA8900; /* Amazon Hover Orange */
+            border-color: #E37B00;
+            transform: translateY(-1px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+        }
+
+        @media (max-width: 900px) {
+            .album-detail-container {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+                margin: 4rem auto;
+            }
+        }
+    </style>
+</head>
+<body>
+    
+    <!-- Premium Navbar (Centered) -->
+    <nav style="width: 100%; padding: 4rem 0 2rem; display: flex; justify-content: center; z-index: 100;">
+        <a href="index.html" style="text-decoration: none; outline: none; display: flex; flex-direction: column; align-items: center; gap: 0.5rem;">
+            <img src="Fotos/LOGO/Logo_transparent.png" alt="AZUR Logo" style="height: 80px; filter: drop-shadow(0 0 15px rgba(255,255,255,0.2)); transition: transform 0.3s;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
+            <span style="color: rgba(255,255,255,0.5); font-size: 0.7rem; font-weight: 400; letter-spacing: 2px; text-transform: uppercase; transition: color 0.3s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.5)'">
+                <i class="fas fa-arrow-left" style="font-size: 0.75rem; margin-right: 5px;"></i> Zurück zur Startseite
+            </span>
+        </a>
+    </nav>
+
+    <div class="album-detail-container">
+        <!-- LINKE SEITE: BILDER -->
+        <div class="album-images" style="position: relative;">
+            <img src="Fotos/azur_album_pdf_page_1.png" alt="Zwischen Dunkelheit und Licht Cover" class="main-cover">
+            
+            <!-- Subtile Tracklist Overlay -->
+            <div style="position: absolute; bottom: 50px; left: 30px; text-align: left; pointer-events: none; opacity: 0.6;">
+                <div style="font-size: 9px; line-height: 1.6; color: #fff; font-family: 'Outfit', sans-serif; letter-spacing: 1px; text-transform: uppercase; font-weight: 300; text-shadow: 0 2px 4px rgba(0,0,0,0.5);">
+                    <div style="display: flex;"><span style="width: 25px; text-align: right; margin-right: 12px; opacity: 0.5;">01.</span><span>IN DER STILLE DER NACHT</span></div>
+                    <div style="display: flex;"><span style="width: 25px; text-align: right; margin-right: 12px; opacity: 0.5;">02.</span><span>SAND AM MEER</span></div>
+                    <div style="display: flex;"><span style="width: 25px; text-align: right; margin-right: 12px; opacity: 0.5;">03.</span><span>DER KÖNIG IM GOLDKÄFIG</span></div>
+                    <div style="display: flex;"><span style="width: 25px; text-align: right; margin-right: 12px; opacity: 0.5;">04.</span><span>DER ADLER IM STURM</span></div>
+                    <div style="display: flex;"><span style="width: 25px; text-align: right; margin-right: 12px; opacity: 0.5;">05.</span><span>GIFT IM HONIGBECHER</span></div>
+                    <div style="display: flex;"><span style="width: 25px; text-align: right; margin-right: 12px; opacity: 0.5;">06.</span><span>STIMMEN AUS DER TIEFE</span></div>
+                    <div style="display: flex;"><span style="width: 25px; text-align: right; margin-right: 12px; opacity: 0.5;">07.</span><span>DIE FLUCHT AUS DER DUNKELHEIT</span></div>
+                    <div style="display: flex;"><span style="width: 25px; text-align: right; margin-right: 12px; opacity: 0.5;">08.</span><span>ROSEN AUF GRANIT</span></div>
+                    <div style="display: flex;"><span style="width: 25px; text-align: right; margin-right: 12px; opacity: 0.5;">09.</span><span>DIE BRÜCKE AUS GLAS</span></div>
+                    <div style="display: flex;"><span style="width: 25px; text-align: right; margin-right: 12px; opacity: 0.5;">10.</span><span>HEIMKEHR OHNE KOMPASS</span></div>
+                    <div style="display: flex;"><span style="width: 25px; text-align: right; margin-right: 12px; opacity: 0.5;">11.</span><span>DER RICHTIGE PFAD</span></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- RECHTE SEITE: INFOS & CHECKOUT -->
+        <div class="album-info">
+            <h1 class="album-title">ZWISCHEN DUNKELHEIT UND LICHT</h1>
+            
+            <div class="album-description">
+                <!-- Text entfernt für sauberen Look -->
+            </div>
+
+            <ul class="tracklist">
+                <li><span>01.</span> IN DER STILLE DER NACHT</li>
+                <li><span>02.</span> SAND AM MEER</li>
+                <li><span>03.</span> DER KÖNIG IM GOLDKÄFIG</li>
+                <li><span>04.</span> DER ADLER IM STURM</li>
+                <li><span>05.</span> GIFT IM HONIGBECHER</li>
+                <li><span>06.</span> STIMMEN AUS DER TIEFE</li>
+                <li><span>07.</span> DIE FLUCHT AUS DER DUNKELHEIT</li>
+                <li><span>08.</span> ROSEN AUF GRANIT</li>
+                <li><span>09.</span> DIE BRÜCKE AUS GLAS</li>
+                <li><span>10.</span> HEIMKEHR OHNE KOMPASS</li>
+                <li><span>11.</span> DER RICHTIGE PFAD</li>
+            </ul>
+
+            <p style="font-size: 0.85rem; opacity: 0.6; line-height: 1.5;">
+                <strong>WICHTIG: Dies ist eine exklusive Vorbestellung (Pre-Order).</strong><br>
+                OFFIZIELLES RELEASE-DATUM: <strong style="color: #FFA41C; font-size: 1rem;">15. MAI 2026 - DIGITAL</strong><br><br>
+                As Vorbesteller sicherst du dir das Album vor allen anderen. Pünktlich am Release-Tag senden wir dir den direkten Link zum sicheren Download des kompletten Albums (Format: High-Quality MP3/WAV, kompatibel mit allen gängigen Audioplayern) direkt per E-Mail.
+            </p>
+
+            <div class="album-price" style="margin-top: 2rem; margin-bottom: 0.5rem;">
+                <span style="font-size: 2.8rem; color: #fff;">14,90 €</span>
+                <span style="text-decoration: line-through; opacity: 0.3; font-size: 1.2rem; margin-left: 10px;">19,90 €</span>
+            </div>
+            <div style="font-size: 0.7rem; color: rgba(255,255,255,0.4); margin-bottom: 1.5rem; letter-spacing: 1px;">FORMAT: HIGH-QUALITY MP3/WAV (320kbps) | DIGITALER DOWNLOAD | KEINE PHYSISCHE CD</div>
+            
+            <div style="background: rgba(29, 185, 84, 0.1); border: 1px solid rgba(29, 185, 84, 0.3); display: inline-block; padding: 5px 15px; border-radius: 50px; margin-bottom: 2rem;">
+                <span style="color: #1DB954; font-size: 0.7rem; font-weight: 800; letter-spacing: 1px;">5,00 € VORBESTELLER-VORTEIL BIS 15. MAI</span>
+            </div>
+
+            <div style="font-size: 0.8rem; opacity: 0.8; margin-bottom: 12px; letter-spacing: 2px; font-weight: 800; color: #fff;">1. VERSION WÄHLEN</div>
+            <div class="version-selector" style="margin-bottom: 2rem; display: flex; gap: 10px;">
+                <button id="btn-full" class="version-btn active" onclick="setVersion('full')" style="background: #fff; border: 1px solid #fff; color: #000; padding: 12px 5px; border-radius: 12px; font-size: 0.85rem; font-weight: 700; cursor: pointer; transition: all 0.3s; flex: 1; letter-spacing: 1px; font-family: 'Outfit', sans-serif; line-height: 1.2;">STUDIO VERSION<br><span style="font-size: 0.6rem; opacity: 0.7; font-weight: 400;">(MIT MUSIK)</span></button>
+                <button id="btn-vocal" class="version-btn" onclick="setVersion('vocal')" style="background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.2); color: rgba(255,255,255,0.7); padding: 12px 5px; border-radius: 12px; font-size: 0.85rem; font-weight: 700; cursor: pointer; transition: all 0.3s; flex: 1; letter-spacing: 1px; font-family: 'Outfit', sans-serif; line-height: 1.2;">VOICE ONLY<br><span style="font-size: 0.6rem; opacity: 0.7; font-weight: 400;">(OHNE MUSIK)</span></button>
+            </div>
+
+            <div style="font-size: 0.8rem; opacity: 0.8; margin-bottom: 12px; letter-spacing: 2px; font-weight: 800; color: #fff;">2. JETZT VORBESTELLEN</div>
+            <button class="buy-action-btn" style="width: 100%; display: block; font-size: 1rem; padding: 1rem;" onclick="initiateCheckout('Zwischen Dunkelheit und Licht')">JETZT VORBESTELLEN</button>
+            <p style="font-size: 0.7rem; opacity: 0.6; margin-top: 15px; line-height: 1.4; color: #fff;">
+                <strong>Hinweis:</strong> Dies ist ein <strong>digitales Produkt (Download)</strong>. Mit dem Kauf stimmst du der sofortigen Ausführung des Vertrages vor Ablauf der Widerrufsfrist zu. Das Widerrufsrecht erlischt bei digitalen Inhalten mit Beginn der Ausführung.
+            </p>
+        </div>
+    </div>
+
+    <!-- CHECKOUT OVERLAY (Test Mode) -->
+    <div id="checkout-overlay" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.95); z-index: 10000; align-items: center; justify-content: center; flex-direction: column;">
+        <div class="loader" style="width: 50px; height: 50px; border: 3px solid rgba(255, 255, 255, 0.1); border-top: 3px solid #0088ff; border-radius: 50%; animation: spin 1s linear infinite; margin-bottom: 2rem;"></div>
+        <h2 style="color: white; font-weight: 300; letter-spacing: 3px;">INITIALISIERE SECURE CHECKOUT</h2>
+        <p style="color: rgba(255,255,255,0.4); margin-top: 1rem;">Du wirst weitergeleitet...</p>
+    </div>
+
+    <script>
+        const STRIPE_LINKS = {
+            'full': 'https://buy.stripe.com/cNieVeckQ1glehb46h5wI02',
+            'vocal': 'https://buy.stripe.com/5kQfZi70wf7b8WR32d5wI03'
+        };
+
+        let currentVersion = 'full';
+
+        function setVersion(version) {
+            currentVersion = version;
+            document.querySelectorAll('.version-btn').forEach(btn => {
+                btn.style.background = 'rgba(255,255,255,0.05)';
+                btn.style.borderColor = 'rgba(255,255,255,0.2)';
+                btn.style.color = 'rgba(255,255,255,0.7)';
+                btn.classList.remove('active');
+            });
+            const activeBtn = document.getElementById('btn-' + version);
+            activeBtn.style.background = '#fff';
+            activeBtn.style.borderColor = '#fff';
+            activeBtn.style.color = '#000';
+            activeBtn.classList.add('active');
+        }
+
+        function initiateCheckout(productName) {
+            const finalLink = STRIPE_LINKS[currentVersion];
+
+            console.log("Stripe Checkout Link:", finalLink);
+
+            const overlay = document.getElementById('checkout-overlay');
+            overlay.style.display = 'flex';
+            setTimeout(() => {
+                window.location.href = finalLink;
+            }, 2500);
+        }
+    </script>
+    <footer style="margin-top: 4rem; padding: 2rem 2rem; border-top: 1px solid rgba(255,255,255,0.05); text-align: center; opacity: 0.3; font-size: 0.65rem; letter-spacing: 1px;">
+        <p>Gemäß § 19 UStG wird keine Umsatzsteuer berechnet.</p>
+        <p style="margin-top: 10px;">&copy; 2026 ΛZUR NASHEED. OFFICIAL ARTIST SHOP.</p>
+    </footer>
+</body>
+</html>

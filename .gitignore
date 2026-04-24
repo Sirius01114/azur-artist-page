@@ -6,4 +6,16 @@ Thumbs.db
 *.tmp
 temp/
 Videos/
-Videos/UPLOAD/
+Videomaterial/
+Promotion Videos/
+Musik/
+Stats/
+Youtube/
+Inspiration/
+Books/
+Azur Essential/
+Neuer Ordner/
+*.wav
+*.mp4
+*.zip
+*.rar

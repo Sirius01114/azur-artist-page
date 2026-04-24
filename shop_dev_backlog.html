@@ -1,0 +1,104 @@
+<!-- BACKUP DER SHOP-KOMPONENTEN (Hoodies & Nasheeds) -->
+<!-- Diese Datei dient nur als Zwischenspeicher für die Weiterentwicklung im Hintergrund -->
+
+<!-- 1. HOODIE SECTION (MALE/FEMALE) -->
+<div class="hoodie-row">
+    <!-- MALE (Masterpiece Edition) -->
+    <div class="product-item" id="male-item">
+        <div class="product-image-box">
+            <div class="swipe-arrow left" onclick="swipeColor('male-item', -1)">&#10094;</div>
+            <img src="Fotos/azur_first_male_masterpiece_black.png" alt="Male Hoodie Masterpiece" class="display-img" loading="lazy">
+            <div class="swipe-arrow right" onclick="swipeColor('male-item', 1)">&#10095;</div>
+        </div>
+        <h3 class="product-name">AZUR MASTERPIECE EDITION (MALE)</h3>
+        <span class="product-price">59,99 €</span>
+        
+        <div class="color-selector">
+            <div class="swatch black active" data-img="Fotos/azur_first_male_masterpiece_black.png" onclick="switchColor('male-item', this)"></div>
+            <div class="swatch rose" data-img="Fotos/azur_male_masterpiece_rose.png" onclick="switchColor('male-item', this)"></div>
+            <div class="swatch sand" title="Bald verfügbar"></div>
+        </div>
+
+        <div class="size-selector" id="sizes-male">
+            <button class="size-btn" onclick="selectSize('sizes-male', this)">S</button>
+            <button class="size-btn active" onclick="selectSize('sizes-male', this)">M</button>
+            <button class="size-btn" onclick="selectSize('sizes-male', this)">L</button>
+            <button class="size-btn" onclick="selectSize('sizes-male', this)">XL</button>
+        </div>
+        
+        <button class="buy-btn" onclick="initiateCheckout('AZUR Masterpiece Hoodie (Black)')">JETZT KAUFEN</button>
+    </div>
+
+    <!-- FEMALE / HIJAB (Masterpiece Edition) -->
+    <div class="product-item" id="female-item">
+        <div class="product-image-box">
+            <div class="swipe-arrow left" onclick="swipeColor('female-item', -1)">&#10094;</div>
+            <img src="Fotos/azur_female_masterpiece_rose.png" alt="Rose Masterpiece Hoodie" class="display-img" loading="lazy">
+            <div class="swipe-arrow right" onclick="swipeColor('female-item', 1)">&#10095;</div>
+        </div>
+        <h3 class="product-name">AZUR MASTERPIECE EDITION (ROSE)</h3>
+        <span class="product-price">59,99 €</span>
+
+        <div class="color-selector">
+            <div class="swatch black" data-img="Fotos/azur_female_masterpiece_black.png" onclick="switchColor('female-item', this)"></div>
+            <div class="swatch rose active" data-img="Fotos/azur_female_masterpiece_rose.png" onclick="switchColor('female-item', this)"></div>
+            <div class="swatch sand" title="Bald verfügbar"></div>
+        </div>
+
+        <div class="size-selector" id="sizes-female">
+            <button class="size-btn" onclick="selectSize('sizes-female', this)">S</button>
+            <button class="size-btn active" onclick="selectSize('sizes-female', this)">M</button>
+            <button class="size-btn" onclick="selectSize('sizes-female', this)">L</button>
+            <button class="size-btn" onclick="selectSize('sizes-female', this)">XL</button>
+        </div>
+
+        <button class="buy-btn" onclick="initiateCheckout('AZUR Masterpiece Hoodie (Rose)')">JETZT KAUFEN</button>
+    </div>
+</div>
+
+<!-- 2. NASHEED SECTION -->
+<section class="signature-section" id="nasheed-commission">
+    <div class="signature-card">
+        <div class="card-form">
+            <h2>Dein Seelen-Nasheed</h2>
+            <p style="margin-bottom: 2rem; opacity: 0.6; font-size: 0.9rem; line-height: 1.6;">
+                Erschaffe eine klangliche Brücke zu deinem wahren Ich (*Khudi*). In einer exklusiven Komposition vertone ich deine Geschichte, deine Werte oder deine spirituelle Reise.
+            </p>
+            <div class="input-box">
+                <label>DEIN NAME</label>
+                <input type="text" placeholder="Gib deinen Namen ein">
+            </div>
+            <div class="input-box">
+                <label>SPIRITUELLES THEMA / INTENTION</label>
+                <input type="text" placeholder="Welche Botschaft soll der Nasheed tragen?">
+            </div>
+            <button class="submit-btn" onclick="window.location.href='mailto:kontakt@azur-nasheed.me?subject=Persönliche Nasheed Anfrage'">ETWAS EINZIGARTIGES ERSCHAFFEN</button>
+        </div>
+        <div class="card-media">
+            <img src="Azur%20Essential/azur_studio_final_perfection.png" class="main" style="filter: brightness(0.9);">
+            <img src="Fotos/azur_logo.png" class="stamp">
+        </div>
+    </div>
+</section>
+
+<!-- 3. UNUSED JS (BACKUP) -->
+<script>
+    function switchColor(itemId, swatch) {
+        const container = document.getElementById(itemId);
+        const img = container.querySelector('.display-img');
+        const newSrc = swatch.getAttribute('data-img');
+        container.querySelectorAll('.swatch').forEach(s => s.classList.remove('active'));
+        swatch.classList.add('active');
+        img.style.opacity = '0';
+        setTimeout(() => {
+            img.src = newSrc;
+            img.style.opacity = '1';
+        }, 300);
+    }
+
+    function selectSize(containerId, btn) {
+        const container = document.getElementById(containerId);
+        container.querySelectorAll('.size-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+    }
+</script>
