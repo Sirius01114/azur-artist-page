@@ -1,229 +1,349 @@
 <!DOCTYPE html>
 <html lang="de">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AZUR NASHEED | Sand am Meer</title>
-    <meta name="description"
-        content="Offizielle Landingpage von AZUR NASHEED. Nasheeds, die das Herz berühren. Neue Single 'Sand am Meer' jetzt überall hörbar.">
-    <link rel="icon" type="image/png" href="favicon.png">
+    <title>SHOP PREVIEW | AZUR INTERACTIVE HQ</title>
     <link rel="stylesheet" href="style.css?v=21">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Michroma&family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <style>
+        body { 
+            background-color: #05070a;
+            color: #fff;
+            font-family: 'Outfit', sans-serif;
+            margin: 0;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        
+        .name-main {
+            font-family: 'Michroma', sans-serif !important;
+            letter-spacing: 1.8rem !important;
+            background: linear-gradient(180deg, #d1d1d1 0%, #ffffff 40%, #808080 50%, #e0e0e0 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.2));
+        }
+
+        .bg-fixed-img {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background-image: url('Fotos/azur_stars_background_4k.png?v=2');
+            background-size: cover;
+            background-position: center;
+            z-index: -2;
+            opacity: 0.6;
+        }
+
+        .background-overlay {
+            position: fixed; left: 0; top:0; width: 100%; height: 100%;
+            background: radial-gradient(circle at center, rgba(5,7,10,0.4) 0%, rgba(5,7,10,0.9) 100%);
+            z-index: -1;
+        }
+
+        .main-container { padding: 40px 0 100px; position: relative; z-index: 10; width: 100%; }
+
+        /* LOGO HEADER */
+        .shop-header { text-align: center; margin-bottom: 90px; }
+        .shop-header img { width: 90px; margin-bottom: 15px; }
+        .shop-title { text-transform: uppercase; display: flex; flex-direction: column; align-items: center; }
+        .shop-title .main { font-size: 3.5rem; font-weight: 800; letter-spacing: 1.2rem; }
+        .shop-title .sub { font-size: 1rem; color: #8fa9ff; letter-spacing: 0.5rem; font-weight: 300; margin-top: 5px; }
+
+        /* INTERACTIVE PRODUCTS */
+        .hoodie-section { max-width: 1200px; margin: 0 auto 100px; padding: 0 4rem; }
+        .hoodie-row { display: grid; grid-template-columns: repeat(2, 1fr); gap: 2.5rem; }
+        .product-item { text-align: center; }
+        
+        .product-image-box { 
+            width: 100%; 
+            aspect-ratio: 1; 
+            margin-bottom: 1rem; 
+            overflow: hidden; 
+            border-radius: 8px; 
+            background: #111; 
+            position: relative;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+        }
+
+        .product-image-box img { 
+            width: 100%; 
+            height: 100%; 
+            object-fit: cover; 
+            transition: opacity 0.5s cubic-bezier(0.4, 0, 0.2, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+            filter: brightness(1.05); /* Slight boost for dark variant */
+        }
+
+        .color-selector { display: flex; justify-content: center; gap: 15px; margin-bottom: 0.5rem; }
+        .swatch {
+            width: 22px; height: 22px; border-radius: 50%; border: 2px solid transparent; cursor: pointer;
+            transition: transform 0.3s, border-color 0.3s, box-shadow 0.3s;
+        }
+        .swatch:hover { transform: scale(1.3); }
+        .swatch.active { border-color: #fff; transform: scale(1.3); box-shadow: 0 0 10px rgba(255,255,255,0.4); }
+
+        .swatch.black { background: #000; border: 1px solid rgba(255,255,255,0.3); }
+        .swatch.rose { background: #936873; }
+        .swatch.sand { background: #d2c5b4; opacity: 0.3; cursor: not-allowed; }
+        .swatch.navy { background: #1a233a; opacity: 0.3; cursor: not-allowed; }
+
+        .product-name { font-size: 0.8rem; font-weight: 700; letter-spacing: 0.2rem; margin-bottom: 0.5rem; }
+        .product-price { font-size: 1.3rem; font-weight: 300; opacity: 0.8; margin-bottom: 0.5rem; display: block; }
+
+        .featured-album-glow {
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            box-shadow: 0 0 40px rgba(255, 255, 255, 0.05), 0 20px 50px rgba(0,0,0,0.8) !important;
+            transition: transform 0.3s ease, box-shadow 0.3s ease, border 0.3s ease;
+        }
+        .featured-album-glow:hover {
+            transform: scale(1.02) translateY(-5px);
+            box-shadow: 0 0 50px rgba(255, 255, 255, 0.1), 0 30px 60px rgba(0,0,0,0.9) !important;
+            border: 1px solid rgba(255, 255, 255, 0.25);
+        }
+
+        .buy-btn { 
+            background: #FFA41C; color: #0F1111; border: 1px solid #FF8F00; border-radius: 100px; padding: 0.8rem 2.5rem; font-weight: 800; 
+            font-size: 0.8rem; letter-spacing: 0.1rem; cursor: pointer; transition: all 0.2s; box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        }
+        .buy-btn:hover { background: #FA8900; border-color: #E37B00; transform: translateY(-2px); box-shadow: 0 4px 8px rgba(0,0,0,0.3); }
+
+        /* NASHEED MODULE */
+        .signature-section { max-width: 1000px; margin: 0 auto; padding: 0 2rem; }
+        .sig-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 4rem; }
+        .sig-header h1 { font-size: 2.2rem; font-weight: 800; text-transform: uppercase; text-align: right; line-height: 1.1; }
+        .sig-header h1 span { font-size: 1.1rem; font-weight: 300; display: block; opacity: 0.6; letter-spacing: 0.3rem; }
+
+        .signature-card { 
+            display: grid; grid-template-columns: 1.2fr 1fr; background: #fff; border-radius: 12px; 
+            overflow: hidden; box-shadow: 0 50px 100px rgba(0,0,0,0.8);
+        }
+        .card-form { padding: 4.5rem; color: #000; }
+        .card-form h2 { font-size: 2.4rem; font-weight: 800; margin-bottom: 3rem; text-transform: uppercase; }
+        .input-box { margin-bottom: 3rem; }
+        .input-box label { font-size: 0.7rem; font-weight: 800; opacity: 0.5; display: block; margin-bottom: 0.8rem; letter-spacing: 0.1rem; }
+        .input-box input { width: 100%; border: none; border-bottom: 1px solid rgba(0,0,0,0.1); padding: 0.6rem 0; font-size: 1rem; outline: none; }
+        .submit-btn { width: 100%; background: #000; color: #fff; border: none; padding: 1.4rem; font-weight: 800; letter-spacing: 0.2rem; cursor: pointer; }
+
+        .card-media { position: relative; background: #000; }
+        .card-media img.main { width: 100%; height: 100%; object-fit: cover; display: block; }
+        .stamp { position: absolute; bottom: 20px; right: 20px; width: 60px; opacity: 0.25; filter: invert(1); }
+
+        .bottom-txt { text-align: center; margin-top: 4rem; opacity: 0.5; font-size: 1rem; letter-spacing: 0.1rem; }
+
+        @media (max-width: 900px) {
+            .hoodie-row, .sig-header { grid-template-columns: 1fr; flex-direction: column; text-align: center; }
+            .signature-card { 
+                grid-template-columns: 1fr; 
+                background: #000; /* Dunkel für besseren Kontrast auf Mobilgeräten */
+                border-radius: 12px;
+                position: relative;
+            }
+            .card-media { 
+                height: 300px; 
+                order: -1; /* Bild nach oben */
+            }
+            .card-form { 
+                padding: 2.5rem 1.5rem; 
+                background: rgba(255, 255, 255, 0.95); /* Leicht transparentes Weiß auf dem Bild */
+                margin: -50px 1rem 1rem; /* Überlappung mit dem Bild */
+                border-radius: 8px;
+                position: relative;
+                z-index: 5;
+            }
+            .hoodie-section { padding: 0 1.5rem; }
+        }
+    </style>
 </head>
-
 <body>
-
+    <!-- FIXED BACKGROUND FIX FÜR MOBILE -->
+    <div class="bg-fixed-img"></div>
     <div class="background-overlay"></div>
 
-    <main class="container">
-        <header class="hero">
-            <div class="profile-img-container">
-                <img src="Fotos/azur_logo.png" alt="AZUR NASHEED Logo" class="profile-img">
+    <div class="main-container">
+        <!-- HERO (aus index.html) -->
+        <header class="hero" style="text-align: center; padding-top: 1rem; margin-bottom: 4rem;">
+            <div class="logo-wrapper" style="margin-bottom: -40px;">
+                <img src="Fotos/LOGO/Logo_transparent.png" alt="AZUR NASHEED Logo" style="width: 180px; height: auto; filter: drop-shadow(0 0 30px rgba(143, 169, 255, 0.4));">
             </div>
-            <h1 class="artist-name">
-                <span class="name-main">AZUR</span>
-                <span class="name-sub">NASHEED</span>
+            <h1 class="artist-name" style="margin: 0; padding: 0;">
+                <span class="name-main" style="display: block; font-size: 3.2rem; font-weight: 400; text-align: center; margin-right: -1.8rem; line-height: 1;">ΛZUR</span>
+                <span class="name-sub" style="display: block; font-size: 0.8rem; color: #d1d1d1; letter-spacing: 2.2rem; font-weight: 300; margin-top: 12px; margin-right: -2.2rem; opacity: 0.7;">NASHEED</span>
             </h1>
         </header>
 
-        <section class="release-card">
-            <div class="card-content">
-                <span class="status">NEUE SINGLE</span>
-                <h2>Sand am Meer</h2>
-
-                <!-- Premium Video Card (Click to Play) -->
-                <div class="premium-video-card" id="video-card" onclick="loadVideo()">
-                    <div class="play-overlay">
-                        <div class="pulse-icon">
-                            <i class="fas fa-play"></i>
+        <!-- PRODUCT GRID -->
+        <section class="hoodie-section">
+            <!-- FEATURED ALBUM SECTION -->
+        <section class="featured-album" style="margin-top: 4rem; margin-bottom: 4rem;">
+            <p style="text-align: center; margin-bottom: 0.3rem; font-size: 1.1rem; letter-spacing: 3px; font-weight: 800; color: #1db954;">ALBUM VORBESTELLEN</p>
+            <p style="text-align: center; margin-top: 0; margin-bottom: 2rem; font-size: 0.85rem; color: #ffffff; font-weight: 400; letter-spacing: 1px;">(Release 15. Mai 2026 - digital)</p>
+            <div class="product-item" id="album-item" style="max-width: 500px; margin: 0 auto;">
+                <div class="product-image-box featured-album-glow" style="aspect-ratio: 1/1; cursor: pointer; position: relative;" onclick="window.location.href='product_album.html'">
+                    <img src="Fotos/azur_album_pdf_page_1.png" alt="AZUR Album Masterpiece" class="display-img" loading="lazy">
+                    
+                    <!-- Subtile Tracklist Overlay -->
+                    <div style="position: absolute; bottom: 40px; left: 20px; text-align: left; pointer-events: none; opacity: 0.6;">
+                        <div style="font-size: 8px; line-height: 1.6; color: #fff; font-family: 'Outfit', sans-serif; letter-spacing: 1px; text-transform: uppercase; font-weight: 300; text-shadow: 0 2px 4px rgba(0,0,0,0.5);">
+                            <div style="display: flex;"><span style="width: 20px; text-align: right; margin-right: 10px; opacity: 0.5;">01.</span><span>IN DER STILLE DER NACHT</span></div>
+                            <div style="display: flex;"><span style="width: 20px; text-align: right; margin-right: 10px; opacity: 0.5;">02.</span><span>SAND AM MEER</span></div>
+                            <div style="display: flex;"><span style="width: 20px; text-align: right; margin-right: 10px; opacity: 0.5;">03.</span><span>DER KÖNIG IM GOLDKÄFIG</span></div>
+                            <div style="display: flex;"><span style="width: 20px; text-align: right; margin-right: 10px; opacity: 0.5;">04.</span><span>DER ADLER IM STURM</span></div>
+                            <div style="display: flex;"><span style="width: 20px; text-align: right; margin-right: 10px; opacity: 0.5;">05.</span><span>GIFT IM HONIGBECHER</span></div>
+                            <div style="display: flex;"><span style="width: 20px; text-align: right; margin-right: 10px; opacity: 0.5;">06.</span><span>STIMMEN AUS DER TIEFE</span></div>
+                            <div style="display: flex;"><span style="width: 20px; text-align: right; margin-right: 10px; opacity: 0.5;">07.</span><span>DIE FLUCHT AUS DER DUNKELHEIT</span></div>
+                            <div style="display: flex;"><span style="width: 20px; text-align: right; margin-right: 10px; opacity: 0.5;">08.</span><span>ROSEN AUF GRANIT</span></div>
+                            <div style="display: flex;"><span style="width: 20px; text-align: right; margin-right: 10px; opacity: 0.5;">09.</span><span>DIE BRÜCKE AUS GLAS</span></div>
+                            <div style="display: flex;"><span style="width: 20px; text-align: right; margin-right: 10px; opacity: 0.5;">10.</span><span>HEIMKEHR OHNE KOMPASS</span></div>
+                            <div style="display: flex;"><span style="width: 20px; text-align: right; margin-right: 10px; opacity: 0.5;">11.</span><span>DER RICHTIGE PFAD</span></div>
                         </div>
                     </div>
                 </div>
-
-                <script>
-                    function loadVideo() {
-                        const card = document.getElementById('video-card');
-                        card.style.cursor = 'default';
-                        card.innerHTML = `
-                            <div class="video-wrapper">
-                                <iframe 
-                                    src="https://www.youtube.com/embed/vI3nQcwvJvw?autoplay=1&playsinline=1" 
-                                    title="AZUR NASHEED - Sand am Meer (Official Video)" 
-                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                                    referrerpolicy="strict-origin-when-cross-origin"
-                                    allowfullscreen>
-                                </iframe>
-                            </div>
-                        `;
-                    }
-                </script>
-
-                <!-- Streaming Links -->
-                <a href="https://open.spotify.com/album/0IbqaSnxUiawcknCApQDDO?si=1wenNBPDTjOgU4Ya6lPfSA" class="btn-primary btn-spotify" target="_blank" rel="noopener noreferrer">
-                    <i class="fab fa-spotify" style="margin-right: 8px;"></i> JETZT AUCH AUF SPOTIFY
-                </a>
+                <div style="margin-bottom: 8px;">
+                    <div style="margin-bottom: 5px;">
+                        <span style="color: #2ee06a; font-size: 1.1rem; font-weight: 700; letter-spacing: 1.5px;">5,00 € Vorbesteller-Vorteil bis 15. Mai</span>
+                    </div>
+                    <div style="display: flex; align-items: center; justify-content: center; gap: 12px; margin-bottom: 2px;">
+                        <span class="product-price" style="font-size: 2.2rem; color: #fff; margin: 0;">14,90 €</span>
+                        <span style="text-decoration: line-through; color: #ff4d4d; opacity: 0.8; font-size: 1.2rem;">19,90 €</span>
+                    </div>
+                    <p style="color: rgba(255,255,255,0.4); font-size: 0.65rem; letter-spacing: 1px; margin-top: 0; margin-bottom: 20px; line-height: 1;">
+                        <span class="tax-info" style="opacity: 0.3; font-size: 0.55rem;">inkl. MwSt., keine Ausweisung der MwSt. nach § 19 UStG</span>
+                    </p>
+                </div>
+                
+                <div style="text-align: left; max-width: 320px; margin: 0 auto;">
+                    <div style="font-size: 0.8rem; opacity: 0.8; margin-bottom: 12px; letter-spacing: 2px; font-weight: 800; color: #fff;">1. VERSION WÄHLEN</div>
+                    <div class="version-selector" style="margin-bottom: 25px; display: flex; gap: 10px;">
+                        <button id="btn-full" class="version-btn active" onclick="setVersion('full')" style="background: #fff; border: 1px solid #fff; color: #000; padding: 12px 5px; border-radius: 12px; font-size: 0.85rem; font-weight: 700; cursor: pointer; transition: all 0.3s; flex: 1; letter-spacing: 1px; font-family: 'Outfit', sans-serif; line-height: 1.2;">STUDIO VERSION<br><span style="font-size: 0.6rem; opacity: 0.7; font-weight: 400;">(MIT MUSIK)</span></button>
+                        <button id="btn-vocal" class="version-btn" onclick="setVersion('vocal')" style="background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.2); color: rgba(255,255,255,0.7); padding: 12px 5px; border-radius: 12px; font-size: 0.85rem; font-weight: 700; cursor: pointer; transition: all 0.3s; flex: 1; letter-spacing: 1px; font-family: 'Outfit', sans-serif; line-height: 1.2;">VOICE ONLY<br><span style="font-size: 0.6rem; opacity: 0.7; font-weight: 400;">(OHNE MUSIK)</span></button>
+                    </div>
+                    
+                    <div style="font-size: 0.8rem; opacity: 0.8; margin-bottom: 12px; letter-spacing: 2px; font-weight: 800; color: #fff;">2. JETZT VORBESTELLEN</div>
+                    <button class="buy-btn" style="margin-top: 0; width: 100%; display: block; font-size: 1rem; padding: 1rem;" onclick="initiateCheckout('DIGITAL ALBUM (PRE-ORDER)')">JETZT VORBESTELLEN</button>
+                </div>
+                <p style="font-size: 0.7rem; opacity: 0.6; margin-top: 15px; line-height: 1.4; max-width: 400px; margin-left: auto; margin-right: auto; color: #fff;">
+                    <strong>Hinweis:</strong> Dies ist ein <strong>digitales Produkt (Download)</strong>. Mit dem Kauf stimmst du der sofortigen Ausführung des Vertrages vor Ablauf der Widerrufsfrist zu. Das Widerrufsrecht erlischt bei digitalen Inhalten mit Beginn der Ausführung.
+                </p>
             </div>
         </section>
 
-        <div class="social-brand-bar">
-            <!-- Shop-Link entfernt für reinen Nasheed-Fokus -->
-            
-            <a href="https://www.tiktok.com/@azur.nasheed" class="social-symbol" target="_blank">
-                <i class="fab fa-tiktok"></i>
-                <span>TikTok</span>
+        <!-- SOCIAL LINKS (jetzt unten) -->
+        <div class="social-brand-bar" style="display: flex; justify-content: center; flex-wrap: wrap; gap: 2rem; margin-top: 3rem; margin-bottom: 2rem;">
+            <a href="https://www.tiktok.com/@azur_nasheed" target="_blank" style="color: white; text-align: center; text-decoration: none; opacity: 0.8; transition: opacity 0.3s;" onmouseover="this.style.opacity='1'" onmouseout="this.style.opacity='0.8'">
+                <i class="fab fa-tiktok" style="font-size: 1.5rem; margin-bottom: 0.5rem; display: block;"></i>
+                <span style="font-size: 0.7rem; letter-spacing: 1px;">TikTok</span>
             </a>
-            <a href="https://www.youtube.com/@azur.nasheed?sub_confirmation=1" class="social-symbol" target="_blank">
-                <i class="fab fa-youtube"></i>
-                <span>YouTube</span>
+            <a href="https://www.youtube.com/@azur.nasheed?sub_confirmation=1" target="_blank" style="color: white; text-align: center; text-decoration: none; opacity: 0.8; transition: opacity 0.3s;" onmouseover="this.style.opacity='1'" onmouseout="this.style.opacity='0.8'">
+                <i class="fab fa-youtube" style="font-size: 1.5rem; margin-bottom: 0.5rem; display: block;"></i>
+                <span style="font-size: 0.7rem; letter-spacing: 1px;">YouTube</span>
             </a>
-            <a href="https://www.instagram.com/azur.nasheed" class="social-symbol" target="_blank">
-                <i class="fab fa-instagram"></i>
-                <span>Instagram</span>
+            <a href="https://www.instagram.com/azur.nasheed" target="_blank" style="color: white; text-align: center; text-decoration: none; opacity: 0.8; transition: opacity 0.3s;" onmouseover="this.style.opacity='1'" onmouseout="this.style.opacity='0.8'">
+                <i class="fab fa-instagram" style="font-size: 1.5rem; margin-bottom: 0.5rem; display: block;"></i>
+                <span style="font-size: 0.7rem; letter-spacing: 1px;">Instagram</span>
             </a>
-            <a href="https://open.spotify.com/intl-de/artist/56pBAUNSrP1y15tXZYUs72" class="social-symbol" target="_blank">
-                <i class="fab fa-spotify"></i>
-                <span>Spotify</span>
+            <a href="https://open.spotify.com/intl-de/artist/56pBAUNSrP1y15tXZYUs72" target="_blank" style="color: white; text-align: center; text-decoration: none; opacity: 0.8; transition: opacity 0.3s;" onmouseover="this.style.opacity='1'" onmouseout="this.style.opacity='0.8'">
+                <i class="fab fa-spotify" style="font-size: 1.5rem; margin-bottom: 0.5rem; display: block;"></i>
+                <span style="font-size: 0.7rem; letter-spacing: 1px;">Spotify</span>
             </a>
-            <a href="https://music.apple.com/us/artist/azur/1892303733" class="social-symbol" target="_blank">
-                <i class="fab fa-apple"></i>
-                <span>Apple Music</span>
+            <a href="https://music.apple.com/us/artist/azur/1892303733" target="_blank" style="color: white; text-align: center; text-decoration: none; opacity: 0.8; transition: opacity 0.3s;" onmouseover="this.style.opacity='1'" onmouseout="this.style.opacity='0.8'">
+                <i class="fab fa-apple" style="font-size: 1.5rem; margin-bottom: 0.5rem; display: block;"></i>
+                <span style="font-size: 0.7rem; letter-spacing: 1px;">Apple</span>
+            </a>
+            <a href="https://www.deezer.com/de/artist/386840561" target="_blank" style="color: white; text-align: center; text-decoration: none; opacity: 0.8; transition: opacity 0.3s;" onmouseover="this.style.opacity='1'" onmouseout="this.style.opacity='0.8'">
+                <i class="fab fa-deezer" style="font-size: 1.5rem; margin-bottom: 0.5rem; display: block;"></i>
+                <span style="font-size: 0.7rem; letter-spacing: 1px;">Deezer</span>
+            </a>
+
+            <a href="https://tidal.com/album/516586064" target="_blank" style="color: white; text-align: center; text-decoration: none; opacity: 0.8; transition: opacity 0.3s;" onmouseover="this.style.opacity='1'" onmouseout="this.style.opacity='0.8'">
+                <svg viewBox="0 0 24 24" fill="currentColor" style="width: 1.4rem; height: 1.4rem; margin-bottom: 0.6rem; display: block; margin-left: auto; margin-right: auto;">
+                    <path d="M12.012 7.2L7.212 12l4.8 4.8 4.8-4.8-4.8-4.8zM12.012 16.8l-4.8 4.8-4.8-4.8 4.8-4.8 4.8 4.8zM2.412 12L7.212 7.2l4.8 4.8-4.8 4.8-4.8-4.8zM16.812 7.2l4.8 4.8-4.8 4.8-4.8-4.8 4.8-4.8zM12.012 7.2l4.8-4.8 4.8 4.8-4.8 4.8-4.8-4.8z"/>
+                </svg>
+                <span style="font-size: 0.7rem; letter-spacing: 1px;">Tidal</span>
             </a>
         </div>
 
-        <section class="contact-section">
-            <h3 class="section-title">Kontakt</h3>
-            <p class="contact-email" style="margin-bottom: 1.5rem; font-size: 0.9rem; opacity: 0.8;">
-                <a href="mailto:kontakt@azur-nasheed.me" style="color: var(--accent-color); text-decoration: none;">kontakt@azur-nasheed.me</a>
+        <!-- CONTACT SECTION (Vollständiges Formular aus index.html) -->
+        <section class="contact-section" style="max-width: 480px; margin: 10rem auto 6rem; padding: 0 2rem;">
+            <h3 class="section-title" style="font-size: 0.9rem; letter-spacing: 0.2rem; margin-bottom: 1.5rem; opacity: 0.8; text-transform: uppercase; text-align: center;">Kontakt</h3>
+            <p class="contact-email" style="margin-bottom: 2rem; font-size: 0.9rem; opacity: 0.8; text-align: center;">
+                <a href="mailto:kontakt@azur-nasheed.me" style="color: #fff; text-decoration: none; border-bottom: 1px solid rgba(255,255,255,0.2);">kontakt@azur-nasheed.me</a>
             </p>
-            <h3 class="section-title" style="font-size: 0.7rem; opacity: 0.6;">Oder direkt über die Plattform:</h3>
+            
             <form action="https://formspree.io/f/mqekkzke" method="POST" class="contact-form">
-                <div class="form-group">
-                    <input type="text" name="name" placeholder="Dein Name" required>
+                <div class="form-group" style="margin-bottom: 1rem;">
+                    <input type="text" name="name" placeholder="Dein Name" required style="width: 100%; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: 12px; padding: 1rem; color: #fff; font-family: 'Outfit', sans-serif;">
                 </div>
-                <div class="form-group">
-                    <input type="email" name="email" placeholder="Deine E-Mail" required>
+                <div class="form-group" style="margin-bottom: 1rem;">
+                    <input type="email" name="email" placeholder="Deine E-Mail" required style="width: 100%; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: 12px; padding: 1rem; color: #fff; font-family: 'Outfit', sans-serif;">
                 </div>
-                <div class="form-group">
-                    <textarea name="message" placeholder="Deine Nachricht an AZUR NASHEED..." required></textarea>
+                <div class="form-group" style="margin-bottom: 1.5rem;">
+                    <textarea name="message" placeholder="Deine Nachricht an AZUR NASHEED..." required style="width: 100%; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: 12px; padding: 1rem; color: #fff; min-height: 150px; font-family: 'Outfit', sans-serif; resize: none;"></textarea>
                 </div>
-                <button type="submit" class="btn-primary">
-                    <span>ABSENDEN</span>
+                <button type="submit" class="buy-btn" style="width: 100%; background: #fff; color: #000; border: none; padding: 1.2rem; font-weight: 800; letter-spacing: 2px;">
+                    ABSENDEN
                 </button>
             </form>
         </section>
 
-        <!-- AZUR ESSENTIAL SHOP EXPERIENCE (LOCAL DEV - OFFLINE) 
-        <section id="shop-experience" class="shop-experience">
-            <div class="shop-branding-integrated">
-                <img src="Fotos/azur_logo.png" alt="AZUR Logo" class="shop-section-logo">
-                <h2 class="shop-section-title">
-                    <span class="shop-title-main">AZUR</span>
-                    <span class="shop-title-sub">ESSENTIAL</span>
-                </h2>
-                <nav class="shop-section-nav">
-                    <a href="#" class="active">HOME</a>
-                    <a href="#">HOODIES</a>
-                    <a href="#">STREETWEAR</a>
-                    <a href="#">SPORT</a>
-                    <a href="#">SALE</a>
-                </nav>
-            </div>
-
-            <div class="product-grid-integrated">
-                <div class="product-item">
-                    <div class="product-image-box">
-                        <img src="Fotos/shop_product_1.png" alt="Black Hoodie">
-                    </div>
-                    <div class="product-details">
-                        <span class="product-price">€59.99</span>
-                    </div>
-                    <button class="add-to-cart-btn">ADD TO CART</button>
-                </div>
-
-                <div class="product-item">
-                    <div class="product-image-box">
-                        <img src="Fotos/shop_product_2.png" alt="Urban Streetwear">
-                    </div>
-                    <div class="product-details">
-                        <span class="product-price">€59.99</span>
-                    </div>
-                    <button class="add-to-cart-btn">ADD TO CART</button>
-                </div>
-
-                <div class="product-item">
-                    <div class="product-image-box">
-                        <img src="Fotos/shop_product_3.png" alt="Performance Tracksuit">
-                    </div>
-                    <div class="product-details">
-                        <span class="product-price">€59.99</span>
-                    </div>
-                    <button class="add-to-cart-btn">ADD TO CART</button>
-                </div>
-
-                <div class="product-item">
-                    <div class="product-image-box">
-                        <img src="Fotos/shop_product_4.png" alt="Detail Shot">
-                    </div>
-                    <div class="product-details">
-                        <span class="product-price">€59.99</span>
-                    </div>
-                    <button class="add-to-cart-btn">ADD TO CART</button>
-                </div>
-            </div>
-            
-            <div class="collection-footer">
-                <p>Ab Juni 2026 exklusiv auf azur-nasheed.me</p>
-            </div>
-        </section>
-        -->
-
-        <footer class="footer">
-            <div class="footer-content">
-                <div class="legal-links">
-                    <span>&copy; 2026 AZUR NASHEED</span>
-                    <span class="divider">|</span>
-                    <a href="datenschutz.html">Datenschutzerklärung</a>
-                    <span class="divider">|</span>
-                    <a href="impressum.html">Impressum</a>
-                    <span class="divider">|</span>
-                    <span>Official Artist Page</span>
+        <!-- FOOTER & LEGAL -->
+        <footer class="footer" style="text-align: center; padding: 2rem 0 1.5rem; border-top: 1px solid rgba(255,255,255,0.05); margin-top: 2rem; width: 100%; opacity: 1 !important;">
+            <div class="footer-content" style="max-width: 1200px; margin: 0 auto; padding: 0 2rem;">
+                <p style="opacity: 0.3; margin-bottom: 1.5rem; font-size: 0.65rem; letter-spacing: 1px;">Gemäß § 19 UStG wird keine Umsatzsteuer berechnet.</p>
+                
+                <div class="legal-links-container" style="display: flex; justify-content: center; align-items: center; gap: 1.5rem; flex-wrap: wrap; padding-top: 0;">
+                    <span style="opacity: 0.4; font-size: 0.65rem; letter-spacing: 1px;">&copy; 2026 ΛZUR NASHEED</span>
+                    <a href="widerruf.html" style="color: rgba(255,255,255,0.4); text-decoration: none; font-size: 0.65rem; letter-spacing: 1px; transition: color 0.3s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.4)'">WIDERRECHTSBELEHRUNG</a>
+                    <a href="agb.html" style="color: rgba(255,255,255,0.4); text-decoration: none; font-size: 0.65rem; letter-spacing: 1px; transition: color 0.3s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.4)'">AGB</a>
+                    <a href="datenschutz.html" style="color: rgba(255,255,255,0.4); text-decoration: none; font-size: 0.65rem; letter-spacing: 1px; transition: color 0.3s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.4)'">DATENSCHUTZ</a>
+                    <a href="impressum.html" style="color: rgba(255,255,255,0.4); text-decoration: none; font-size: 0.65rem; letter-spacing: 1px; transition: color 0.3s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.4)'">IMPRESSUM</a>
                 </div>
             </div>
         </footer>
+    </div>
 
-    </main> <!-- Ursprüngliche Container-Struktur wiederhergestellt -->
-    <script>
-        // Klickschutz fuer Video-Card
-        document.addEventListener('DOMContentLoaded', () => {
-            const card = document.querySelector('.premium-video-card');
-            if (card) {
-                card.addEventListener('click', (e) => {
-                    e.stopPropagation();
-                });
-            }
+    <!-- CHECKOUT OVERLAY -->
+    <div id="checkout-overlay">
+        <div class="loader"></div>
+        <h2 style="color: white; font-weight: 300; letter-spacing: 3px;">INITIALISIERE SECURE CHECKOUT</h2>
+        <p style="color: rgba(255,255,255,0.4); margin-top: 1rem;">Du wirst zum sicheren Zahlungsanbieter weitergeleitet...</p>
+    </div>
 
-            const releaseCard = document.querySelector('.release-card');
-            if (releaseCard) {
-                releaseCard.style.opacity = '0';
-                releaseCard.style.transform = 'translateY(20px)';
-                setTimeout(() => {
-                    releaseCard.style.transition = 'all 1s ease-out';
-                    releaseCard.style.opacity = '1';
-                    releaseCard.style.transform = 'translateY(0)';
-                }, 300);
-            }
-        });
-    </script>
-    <!-- Vercel Analytics -->
     <script>
-        window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
+        const STRIPE_LINKS = {
+            'full': 'https://buy.stripe.com/cNieVeckQ1glehb46h5wI02',
+            'vocal': 'https://buy.stripe.com/5kQfZi70wf7b8WR32d5wI03'
+        };
+
+        let currentVersion = 'full';
+
+        function setVersion(version) {
+            currentVersion = version;
+            document.querySelectorAll('.version-btn').forEach(btn => {
+                btn.style.background = 'rgba(255,255,255,0.05)';
+                btn.style.borderColor = 'rgba(255,255,255,0.2)';
+                btn.style.color = 'rgba(255,255,255,0.7)';
+            });
+            const activeBtn = document.getElementById('btn-' + version);
+            activeBtn.style.background = '#fff';
+            activeBtn.style.borderColor = '#fff';
+            activeBtn.style.color = '#000';
+        }
+
+        function initiateCheckout(productName) {
+            const finalLink = STRIPE_LINKS[currentVersion];
+            
+            console.log("Stripe Checkout Link:", finalLink);
+
+            const overlay = document.getElementById('checkout-overlay');
+            overlay.style.display = 'flex';
+            
+            setTimeout(() => {
+                window.location.href = finalLink;
+            }, 2500);
+        }
     </script>
-    <script defer src="/_vercel/insights/script.js"></script>
 </body>
-
 </html>
