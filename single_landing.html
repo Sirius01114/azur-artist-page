@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AZUR NASHEED | Sand am Meer</title>
+    <meta name="description"
+        content="Offizielle Landingpage von AZUR NASHEED. Nasheeds, die das Herz berühren. Neue Single 'Sand am Meer' jetzt überall hörbar.">
+    <link rel="icon" type="image/png" href="favicon.png">
+    <link rel="stylesheet" href="style.css?v=21">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+    <div class="background-overlay"></div>
+
+    <main class="container">
+        <header class="hero">
+            <div class="profile-img-container">
+                <img src="Fotos/azur_logo.png" alt="AZUR NASHEED Logo" class="profile-img">
+            </div>
+            <h1 class="artist-name">
+                <span class="name-main">AZUR</span>
+                <span class="name-sub">NASHEED</span>
+            </h1>
+        </header>
+
+        <section class="release-card">
+            <div class="card-content">
+                <span class="status">NEUE SINGLE</span>
+                <h2>Sand am Meer</h2>
+
+                <!-- Premium Video Card (Click to Play) -->
+                <div class="premium-video-card" id="video-card" onclick="loadVideo()">
+                    <div class="play-overlay">
+                        <div class="pulse-icon">
+                            <i class="fas fa-play"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <script>
+                    function loadVideo() {
+                        const card = document.getElementById('video-card');
+                        card.style.cursor = 'default';
+                        card.innerHTML = `
+                            <div class="video-wrapper">
+                                <iframe 
+                                    src="https://www.youtube.com/embed/vI3nQcwvJvw?autoplay=1&playsinline=1" 
+                                    title="AZUR NASHEED - Sand am Meer (Official Video)" 
+                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                                    referrerpolicy="strict-origin-when-cross-origin"
+                                    allowfullscreen>
+                                </iframe>
+                            </div>
+                        `;
+                    }
+                </script>
+
+                <!-- Streaming Links -->
+                <a href="https://open.spotify.com/album/0IbqaSnxUiawcknCApQDDO?si=1wenNBPDTjOgU4Ya6lPfSA" class="btn-primary btn-spotify" target="_blank" rel="noopener noreferrer">
+                    <i class="fab fa-spotify" style="margin-right: 8px;"></i> JETZT AUCH AUF SPOTIFY
+                </a>
+            </div>
+        </section>
+
+        <div class="social-brand-bar">
+            <!-- Shop-Link entfernt für reinen Nasheed-Fokus -->
+            
+            <a href="https://www.tiktok.com/@azur.nasheed" class="social-symbol" target="_blank">
+                <i class="fab fa-tiktok"></i>
+                <span>TikTok</span>
+            </a>
+            <a href="https://www.youtube.com/@azur.nasheed?sub_confirmation=1" class="social-symbol" target="_blank">
+                <i class="fab fa-youtube"></i>
+                <span>YouTube</span>
+            </a>
+            <a href="https://www.instagram.com/azur.nasheed" class="social-symbol" target="_blank">
+                <i class="fab fa-instagram"></i>
+                <span>Instagram</span>
+            </a>
+            <a href="https://open.spotify.com/intl-de/artist/56pBAUNSrP1y15tXZYUs72" class="social-symbol" target="_blank">
+                <i class="fab fa-spotify"></i>
+                <span>Spotify</span>
+            </a>
+            <a href="https://music.apple.com/us/artist/azur/1892303733" class="social-symbol" target="_blank">
+                <i class="fab fa-apple"></i>
+                <span>Apple Music</span>
+            </a>
+        </div>
+
+        <section class="contact-section">
+            <h3 class="section-title">Kontakt</h3>
+            <p class="contact-email" style="margin-bottom: 1.5rem; font-size: 0.9rem; opacity: 0.8;">
+                <a href="mailto:kontakt@azur-nasheed.me" style="color: var(--accent-color); text-decoration: none;">kontakt@azur-nasheed.me</a>
+            </p>
+            <h3 class="section-title" style="font-size: 0.7rem; opacity: 0.6;">Oder direkt über die Plattform:</h3>
+            <form action="https://formspree.io/f/mqekkzke" method="POST" class="contact-form">
+                <div class="form-group">
+                    <input type="text" name="name" placeholder="Dein Name" required>
+                </div>
+                <div class="form-group">
+                    <input type="email" name="email" placeholder="Deine E-Mail" required>
+                </div>
+                <div class="form-group">
+                    <textarea name="message" placeholder="Deine Nachricht an AZUR NASHEED..." required></textarea>
+                </div>
+                <button type="submit" class="btn-primary">
+                    <span>ABSENDEN</span>
+                </button>
+            </form>
+        </section>
+
+        <!-- AZUR ESSENTIAL SHOP EXPERIENCE (LOCAL DEV - OFFLINE) 
+        <section id="shop-experience" class="shop-experience">
+            <div class="shop-branding-integrated">
+                <img src="Fotos/azur_logo.png" alt="AZUR Logo" class="shop-section-logo">
+                <h2 class="shop-section-title">
+                    <span class="shop-title-main">AZUR</span>
+                    <span class="shop-title-sub">ESSENTIAL</span>
+                </h2>
+                <nav class="shop-section-nav">
+                    <a href="#" class="active">HOME</a>
+                    <a href="#">HOODIES</a>
+                    <a href="#">STREETWEAR</a>
+                    <a href="#">SPORT</a>
+                    <a href="#">SALE</a>
+                </nav>
+            </div>
+
+            <div class="product-grid-integrated">
+                <div class="product-item">
+                    <div class="product-image-box">
+                        <img src="Fotos/shop_product_1.png" alt="Black Hoodie">
+                    </div>
+                    <div class="product-details">
+                        <span class="product-price">€59.99</span>
+                    </div>
+                    <button class="add-to-cart-btn">ADD TO CART</button>
+                </div>
+
+                <div class="product-item">
+                    <div class="product-image-box">
+                        <img src="Fotos/shop_product_2.png" alt="Urban Streetwear">
+                    </div>
+                    <div class="product-details">
+                        <span class="product-price">€59.99</span>
+                    </div>
+                    <button class="add-to-cart-btn">ADD TO CART</button>
+                </div>
+
+                <div class="product-item">
+                    <div class="product-image-box">
+                        <img src="Fotos/shop_product_3.png" alt="Performance Tracksuit">
+                    </div>
+                    <div class="product-details">
+                        <span class="product-price">€59.99</span>
+                    </div>
+                    <button class="add-to-cart-btn">ADD TO CART</button>
+                </div>
+
+                <div class="product-item">
+                    <div class="product-image-box">
+                        <img src="Fotos/shop_product_4.png" alt="Detail Shot">
+                    </div>
+                    <div class="product-details">
+                        <span class="product-price">€59.99</span>
+                    </div>
+                    <button class="add-to-cart-btn">ADD TO CART</button>
+                </div>
+            </div>
+            
+            <div class="collection-footer">
+                <p>Ab Juni 2026 exklusiv auf azur-nasheed.me</p>
+            </div>
+        </section>
+        -->
+
+        <footer class="footer">
+            <div class="footer-content">
+                <div class="legal-links">
+                    <span>&copy; 2026 AZUR NASHEED</span>
+                    <span class="divider">|</span>
+                    <a href="datenschutz.html">Datenschutzerklärung</a>
+                    <span class="divider">|</span>
+                    <a href="impressum.html">Impressum</a>
+                    <span class="divider">|</span>
+                    <span>Official Artist Page</span>
+                </div>
+            </div>
+        </footer>
+
+    </main> <!-- Ursprüngliche Container-Struktur wiederhergestellt -->
+    <script>
+        // Klickschutz fuer Video-Card
+        document.addEventListener('DOMContentLoaded', () => {
+            const card = document.querySelector('.premium-video-card');
+            if (card) {
+                card.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                });
+            }
+
+            const releaseCard = document.querySelector('.release-card');
+            if (releaseCard) {
+                releaseCard.style.opacity = '0';
+                releaseCard.style.transform = 'translateY(20px)';
+                setTimeout(() => {
+                    releaseCard.style.transition = 'all 1s ease-out';
+                    releaseCard.style.opacity = '1';
+                    releaseCard.style.transform = 'translateY(0)';
+                }, 300);
+            }
+        });
+    </script>
+    <!-- Vercel Analytics -->
+    <script>
+        window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
+    </script>
+    <script defer src="/_vercel/insights/script.js"></script>
+</body>
+
+</html>
