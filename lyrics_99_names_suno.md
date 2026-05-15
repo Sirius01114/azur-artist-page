@@ -69,4 +69,4 @@ Al-Badi – Der die Welt ohne Vorbild erschuf, Al-Baqi – Der uns bleibt nach d
 Al-Warith – Der Erbe, wenn alles vergeht, Ar-Rashid – Der die Wahrheit für immer versteht.
 As-Sabur – Der Geduldige, jenseits der Zeit, La ilaha illa Hu – Für alle Ewigkeit.
 
-[Outro] Subhanallah... AZUR.
+[Outro] Subhanallah... 
